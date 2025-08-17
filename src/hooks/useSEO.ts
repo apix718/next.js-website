@@ -28,6 +28,20 @@ export const useSEO = (seoData: SEOData) => {
     // Set language attribute
     document.documentElement.lang = language;
 
+    // Helper function to clean URL (remove query params and trailing slashes)
+    const cleanUrl = (url: string) => {
+      try {
+        const urlObj = new URL(url);
+        // Remove query parameters
+        urlObj.search = '';
+        // Remove trailing slash
+        urlObj.pathname = urlObj.pathname.replace(/\/$/, '') || '/';
+        return urlObj.toString();
+      } catch {
+        return url;
+      }
+    };
+
     // Helper function to update or create meta tag
     const updateMetaTag = (name: string, content: string, property = false) => {
       const attribute = property ? 'property' : 'name';
@@ -44,12 +58,10 @@ export const useSEO = (seoData: SEOData) => {
       }
     };
 
-    // Helper function to update title - FIXED
+    // Helper function to update title
     const updateTitle = (title: string) => {
-      // Update document title
       document.title = title;
       
-      // Ensure there's a title element in head
       let titleElement = document.querySelector('title') as HTMLTitleElement;
       if (!titleElement) {
         titleElement = document.createElement('title');
@@ -78,12 +90,15 @@ export const useSEO = (seoData: SEOData) => {
       }
     };
 
-    // Update title first - THIS IS THE KEY FIX
+    // Update title
     updateTitle(seoData.title);
 
     // Basic meta tags
     updateMetaTag('description', seoData.description);
     updateMetaTag('language', language);
+
+    // Clean canonical URL
+    const canonicalUrl = seoData.url ? cleanUrl(seoData.url) : cleanUrl(window.location.href);
 
     // Open Graph tags
     updateMetaTag('og:title', seoData.title, true);
@@ -91,16 +106,13 @@ export const useSEO = (seoData: SEOData) => {
     updateMetaTag('og:type', seoData.type || 'website', true);
     updateMetaTag('og:locale', language === 'fr' ? 'fr_FR' : 'en_US', true);
     updateMetaTag('og:site_name', 'Webtmize', true);
+    updateMetaTag('og:url', canonicalUrl, true);
     
     if (seoData.image) {
       updateMetaTag('og:image', seoData.image, true);
       updateMetaTag('og:image:alt', seoData.title, true);
       updateMetaTag('og:image:width', '1200', true);
       updateMetaTag('og:image:height', '630', true);
-    }
-    
-    if (seoData.url) {
-      updateMetaTag('og:url', seoData.url, true);
     }
 
     // Twitter Card tags
@@ -126,16 +138,13 @@ export const useSEO = (seoData: SEOData) => {
       }
     }
 
-    // Canonical URL and hreflang
-    if (seoData.url) {
-      updateLinkTag('canonical', seoData.url);
-      
-      // Hreflang tags for multilingual support
-      const baseUrl = seoData.url.split('?')[0];
-      updateLinkTag('alternate', baseUrl, 'en');
-      updateLinkTag('alternate', baseUrl, 'fr');
-      updateLinkTag('alternate', seoData.url, 'x-default');
-    }
+    // Canonical URL and hreflang (always clean URLs)
+    updateLinkTag('canonical', canonicalUrl);
+    
+    // Hreflang tags for multilingual support (clean URLs)
+    updateLinkTag('alternate', canonicalUrl, 'en');
+    updateLinkTag('alternate', canonicalUrl, 'fr');
+    updateLinkTag('alternate', canonicalUrl, 'x-default');
 
     // Handle structured data
     if (seoData.structuredData) {

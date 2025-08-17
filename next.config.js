@@ -21,6 +21,57 @@ const nextConfig = {
     NEXT_PUBLIC_VOICEFLOW_PROJECT_ID: process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID
   },
 
+  // Redirects for canonical URLs
+  async redirects() {
+    return [
+      // Remove trailing slashes
+      {
+        source: '/blog/',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/case-studies/',
+        destination: '/case-studies',
+        permanent: true,
+      },
+      // Remove query parameters for language switching
+      {
+        source: '/blog',
+        has: [
+          {
+            type: 'query',
+            key: 'lang',
+          },
+        ],
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/case-studies',
+        has: [
+          {
+            type: 'query',
+            key: 'lang',
+          },
+        ],
+        destination: '/case-studies',
+        permanent: true,
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'query',
+            key: 'lang',
+          },
+        ],
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
+
   // Headers for SEO
   async headers() {
     return [

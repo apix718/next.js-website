@@ -18,7 +18,7 @@
   status = 200
   force = true
 
-# Domain canonicalization - only redirect www and http variants
+# Domain canonicalization - redirect all variations to canonical
 [[redirects]]
   from = "https://www.webtimize.ca/*"
   to = "https://webtimize.ca/:splat"
@@ -37,7 +37,7 @@
   status = 301
   force = true
 
-# Misspelling redirects - redirect directly to final destination
+# Misspelling redirects - redirect directly to correct domain
 [[redirects]]
   from = "https://webtmize.ca/*"
   to = "https://webtimize.ca/:splat"
@@ -61,6 +61,39 @@
   to = "https://webtimize.ca/:splat"
   status = 301
   force = true
+
+# Remove trailing slashes for canonical URLs
+[[redirects]]
+  from = "/blog/"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/case-studies/"
+  to = "/case-studies"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/*/"
+  to = "/blog/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/case-studies/*/"
+  to = "/case-studies/:splat"
+  status = 301
+  force = true
+
+# Remove query parameters for canonical URLs
+[[redirects]]
+  from = "/*"
+  to = "/:splat"
+  status = 301
+  force = false
+  conditions = {Query = {lang = ":lang"}}
 
 # Headers for SEO and performance
 [[headers]]
