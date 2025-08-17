@@ -120,4 +120,3 @@ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s 
 var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next@15.4.6_react-dom@18.3.1_react@18.3.1__react@18.3.1","vendor-chunks/@swc+helpers@0.5.15"], () => (__webpack_exec__("(pages-dir-node)/./pages/_app.tsx")));
 module.exports = __webpack_exports__;
 
-})();
