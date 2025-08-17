@@ -1,0 +1,282 @@
+# LLM Prompts for Webtmize Marketing Agency Website
+
+## Content Creation Prompts
+
+### Blog Post Generation
+Create a comprehensive blog post about [TOPIC] for a digital marketing agency specializing in e-commerce and SaaS. The post should be 1500-2000 words, include actionable insights, and be optimized for SEO. Target audience: marketing managers and business owners looking to grow their online presence.
+
+Structure:
+- Compelling headline
+- Introduction with hook
+- 3-5 main sections with subheadings
+- Practical tips and examples
+- Call-to-action
+- Meta description (150-160 characters)
+
+### Case Study Content
+Write a detailed case study for [CLIENT NAME] in the [INDUSTRY] sector. Include:
+- Client background and challenges
+- Our strategic approach and methodology
+- Implementation details
+- Quantifiable results and metrics
+- Client testimonial
+- Key takeaways for similar businesses
+
+Focus on demonstrating ROI and specific improvements in conversion rates, traffic, or revenue.
+
+### Service Page Copy
+Create compelling copy for our [SERVICE NAME] service page. Include:
+- Benefit-focused headline
+- Problem/solution narrative
+- Service features and benefits
+- Process overview (3-5 steps)
+- Social proof elements
+- FAQ section
+- Strong call-to-action
+
+Tone: Professional yet approachable, results-driven, confidence-inspiring.
+
+## SEO & Technical Prompts
+
+### Meta Description Generator
+Generate an SEO-optimized meta description for the page about [PAGE TOPIC]. Requirements:
+- 150-160 characters
+- Include primary keyword: [KEYWORD]
+- Compelling and click-worthy
+- Accurately describes page content
+- Includes a call-to-action
+
+### Schema Markup Generator
+Create JSON-LD structured data for:
+- Organization schema for Webtmize
+- Service schema for [SPECIFIC SERVICE]
+- Article schema for blog posts
+- LocalBusiness schema (if applicable)
+
+Include all relevant properties and ensure compliance with Schema.org standards.
+
+### Keyword Research Prompt
+Analyze keyword opportunities for [TOPIC/SERVICE] in the digital marketing space. Provide:
+- Primary keywords (high volume, medium competition)
+- Long-tail keyword variations
+- Related semantic keywords
+- Search intent analysis
+- Content gap opportunities
+
+Focus on keywords relevant to e-commerce and SaaS marketing.
+
+## Social Media & Marketing Prompts
+
+### LinkedIn Post Creation
+Create a professional LinkedIn post about [TOPIC] for Webtmize. Include:
+- Attention-grabbing hook
+- Valuable insight or tip
+- Personal/company experience
+- Call for engagement
+- Relevant hashtags (5-7)
+
+Tone: Thought leadership, industry expertise, approachable.
+
+### Email Marketing Copy
+Write an email sequence for [CAMPAIGN TYPE]:
+- Subject line (A/B test variations)
+- Personalized opening
+- Value proposition
+- Social proof
+- Clear call-to-action
+- P.S. line for additional engagement
+
+Target: [AUDIENCE SEGMENT]
+
+### Ad Copy Generation
+Create high-converting ad copy for [PLATFORM] targeting [AUDIENCE]:
+- Multiple headline variations
+- Description text
+- Call-to-action options
+- Key benefits highlighted
+- Pain points addressed
+
+Include both emotional and logical appeals.
+
+## Client Communication Prompts
+
+### Proposal Writing
+Draft a comprehensive marketing proposal for [CLIENT NAME] including:
+- Executive summary
+- Situation analysis
+- Proposed strategy and tactics
+- Timeline and milestones
+- Investment and ROI projections
+- Next steps
+
+Customize for [INDUSTRY] and [SPECIFIC CHALLENGES].
+
+### Client Onboarding Email
+Create a welcoming onboarding email sequence for new clients:
+- Welcome and excitement
+- What to expect next
+- Team introductions
+- Required information/access
+- Timeline overview
+- Contact information
+
+### Monthly Report Template
+Generate a client report template covering:
+- Executive summary of performance
+- Key metrics and KPIs
+- Campaign highlights
+- Challenges and solutions
+- Recommendations for next month
+- Visual data presentation suggestions
+
+## Technical Development Prompts
+
+### Component Documentation
+Document the [COMPONENT NAME] React component including:
+- Purpose and functionality
+- Props interface and types
+- Usage examples
+- Styling guidelines
+- Accessibility considerations
+- Performance notes
+
+### Code Review Checklist
+Create a comprehensive code review checklist for:
+- React components
+- TypeScript implementation
+- Accessibility compliance
+- Performance optimization
+- SEO considerations
+- Security best practices
+
+### Bug Report Template
+Generate a detailed bug report for [ISSUE]:
+- Steps to reproduce
+- Expected vs actual behavior
+- Environment details
+- Screenshots/recordings
+- Potential impact
+- Suggested priority level
+
+## Analytics & Reporting Prompts
+
+### Performance Analysis
+Analyze website performance data and provide insights on:
+- Traffic patterns and trends
+- Conversion funnel analysis
+- User behavior insights
+- Technical performance metrics
+- Recommendations for improvement
+
+Data source: [ANALYTICS PLATFORM]
+Time period: [DATE RANGE]
+
+### Competitive Analysis
+Conduct a competitive analysis of [COMPETITOR] including:
+- Website structure and user experience
+- Content strategy and topics
+- SEO performance
+- Social media presence
+- Strengths and weaknesses
+- Opportunities for differentiation
+
+### ROI Calculation
+Calculate and present ROI for [CAMPAIGN/SERVICE]:
+- Investment breakdown
+- Revenue attribution
+- Cost per acquisition
+- Lifetime value impact
+- Comparative analysis
+- Future projections
+
+## Content Strategy Prompts
+
+### Content Calendar Planning
+Create a 3-month content calendar for [PLATFORM/CHANNEL]:
+- Topic themes by week
+- Content types and formats
+- Publishing schedule
+- Promotional strategy
+- Seasonal considerations
+- Resource requirements
+
+### Audience Persona Development
+Develop detailed buyer personas for [TARGET MARKET]:
+- Demographics and psychographics
+- Pain points and challenges
+- Goals and motivations
+- Preferred communication channels
+- Decision-making process
+- Content preferences
+
+### Brand Voice Guidelines
+Define brand voice and tone guidelines:
+- Personality traits
+- Communication style
+- Do's and don'ts
+- Example phrases and language
+- Tone variations by context
+- Voice consistency checklist
+
+## Crisis Management Prompts
+
+### Crisis Communication
+Draft crisis communication response for [SITUATION]:
+- Immediate acknowledgment
+- Explanation of actions taken
+- Timeline for resolution
+- Contact information
+- Follow-up commitment
+- Reputation management strategy
+
+### Negative Review Response
+Create professional responses to negative reviews:
+- Acknowledgment and empathy
+- Specific issue addressing
+- Solution offering
+- Offline conversation invitation
+- Professional tone maintenance
+- Brand reputation protection
+
+## Innovation & Strategy Prompts
+
+### Trend Analysis
+Analyze emerging trends in [INDUSTRY/TECHNOLOGY]:
+- Current market developments
+- Impact on target audience
+- Opportunities for early adoption
+- Implementation considerations
+- Competitive advantages
+- Risk assessment
+
+### Strategic Planning
+Develop strategic recommendations for [BUSINESS GOAL]:
+- Current situation analysis
+- Market opportunities
+- Resource requirements
+- Implementation roadmap
+- Success metrics
+- Risk mitigation strategies
+
+---
+
+## Usage Instructions
+
+1. Replace bracketed placeholders [LIKE THIS] with specific information
+2. Adjust tone and complexity based on target audience
+3. Customize industry-specific terminology as needed
+4. Always fact-check generated content before publication
+5. Maintain brand consistency across all outputs
+6. Consider legal and compliance requirements
+7. Test different prompt variations for optimal results
+
+## Prompt Optimization Tips
+
+- Be specific about desired output format
+- Include context about target audience
+- Specify word count or length requirements
+- Mention brand voice and tone preferences
+- Include examples when possible
+- Request multiple variations for A/B testing
+- Ask for sources and fact-checking when needed
+- Specify technical requirements (SEO, accessibility, etc.)
