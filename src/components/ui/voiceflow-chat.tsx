@@ -2,57 +2,50 @@ import React, { useEffect } from 'react';
 
 interface VoiceflowChatProps {
   autoLoad?: boolean;
-  projectId?: string;
 }
 
-const VoiceflowChat: React.FC<VoiceflowChatProps> = ({ 
-  autoLoad = false, 
-  projectId = process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID 
-}) => {
+const VoiceflowChat: React.FC<VoiceflowChatProps> = ({ autoLoad = true }) => {
   useEffect(() => {
-    // Only run on client-side
-    if (typeof window === 'undefined') return;
+    // Only run on client-side and if autoLoad is true
+    if (typeof window === 'undefined' || !autoLoad) return;
 
-    // Validate project ID
-    if (!projectId) {
-      console.error('Voiceflow Project ID is missing');
-      return;
-    }
-
-    // Check if Voiceflow script is already loaded
-    if (!document.getElementById('voiceflow-chat-script') && autoLoad) {
+    // Function to load Voiceflow chat script
+    const loadVoiceflowChat = () => {
       const script = document.createElement('script');
-      script.id = 'voiceflow-chat-script';
-      script.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
-      script.type = 'module';
-      script.async = true;
-      script.onload = () => {
-        try {
-          if (window.voiceflow && window.voiceflow.chat) {
-            window.voiceflow.chat.load({
-              verify: { 
-                projectID: projectId 
-              },
-              url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production',
-              autoOpen: false,
-              lazyLoad: false,
-            });
-          } else {
-            console.error('Voiceflow chat script not loaded correctly');
-          }
-        } catch (error) {
-          console.error('Error loading Voiceflow chat:', error);
-        }
-      };
+      script.type = 'text/javascript';
+      script.innerHTML = `
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+              window.voiceflow.chat.load({
+                verify: { projectID: '6879820015a3d2e835a9a691' },
+                url: 'https://general-runtime.voiceflow.com',
+                versionID: 'production',
+                voice: {
+                  url: "https://runtime-api.voiceflow.com"
+                }
+              });
+            }
+            v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+            v.type = "text/javascript"; 
+            s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+      `;
 
-      script.onerror = () => {
-        console.error('Failed to load Voiceflow chat script');
-      };
-
+      // Append the script to the body
       document.body.appendChild(script);
-    }
-  }, [autoLoad, projectId]);
+    };
+
+    // Load the Voiceflow chat script
+    loadVoiceflowChat();
+
+    // Cleanup function
+    return () => {
+      // Remove any existing Voiceflow chat scripts if needed
+      const existingScripts = document.querySelectorAll('script[src="https://cdn.voiceflow.com/widget-next/bundle.mjs"]');
+      existingScripts.forEach(script => script.remove());
+    };
+  }, [autoLoad]);
 
   return null; // This component doesn't render anything
 };
