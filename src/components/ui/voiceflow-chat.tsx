@@ -1,51 +1,37 @@
 import React, { useEffect } from 'react';
 
 interface VoiceflowChatProps {
-  projectId?: string;
   autoLoad?: boolean;
 }
 
-const VoiceflowChat: React.FC<VoiceflowChatProps> = ({ 
-  projectId = '6879820015a3d2e835a9a691',
-  autoLoad = true 
-}) => {
+const VoiceflowChat: React.FC<VoiceflowChatProps> = ({ autoLoad = false }) => {
   useEffect(() => {
-    if (!autoLoad) return;
+    // Only run on client-side
+    if (typeof window === 'undefined') return;
 
-    // Load Voiceflow script dynamically
-    const script = document.createElement('script');
-    script.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
-    script.type = 'text/javascript';
-    script.async = true;
-    
-    script.onload = () => {
-      if (window.voiceflow && window.voiceflow.chat) {
-        window.voiceflow.chat.load({
-          verify: { projectID: projectId },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-          }
-        });
-      }
-    };
-
-    // Only load if not already loaded
-    if (!document.querySelector('script[src*="voiceflow"]')) {
-      document.head.appendChild(script);
+    // Check if Voiceflow script is already loaded
+    if (!document.getElementById('voiceflow-chat-script') && autoLoad) {
+      const script = document.createElement('script');
+      script.id = 'voiceflow-chat-script';
+      script.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
+      script.type = 'module';
+      script.async = true;
+      script.onload = () => {
+        if (window.voiceflow && window.voiceflow.chat) {
+          window.voiceflow.chat.load({
+            verify: { projectID: 'YOUR_PROJECT_ID' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            autoOpen: false,
+            lazyLoad: false,
+          });
+        }
+      };
+      document.body.appendChild(script);
     }
+  }, [autoLoad]);
 
-    return () => {
-      // Cleanup if needed
-      const existingScript = document.querySelector('script[src*="voiceflow"]');
-      if (existingScript) {
-        // Don't remove as it might be used elsewhere, but we could add cleanup logic here
-      }
-    };
-  }, [projectId, autoLoad]);
-
-  return null; // This component doesn't render anything visible
+  return null; // This component doesn't render anything
 };
 
 export default VoiceflowChat;

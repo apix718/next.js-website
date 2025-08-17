@@ -13,6 +13,14 @@ export interface SEOData {
   structuredData?: object | object[];
 }
 
+interface CaseStudy {
+  id: string;
+  title: { [key: string]: string };
+  description: { [key: string]: string };
+  industry: { [key: string]: string };
+  image: string;
+}
+
 export const useSEO = (seoData: SEOData) => {
   const { language } = useLanguage();
 
@@ -199,7 +207,7 @@ export const generateWebsiteSchema = (language: string) => ({
   }
 });
 
-export const generateArticleSchema = (caseStudy: Record<string, any>, language: string) => ({
+export const generateArticleSchema = (caseStudy: CaseStudy, language: string) => ({
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": caseStudy.title[language],
