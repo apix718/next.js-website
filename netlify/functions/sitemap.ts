@@ -13,7 +13,7 @@ type Handler = (
   body: string;
 }>;
 
-const BASE_URL = 'https://webtimize.ca';
+const BASE_URL = 'https://webtmize.ca';
 
 function generateUrlEntry(url: string, lastmod: string, changefreq: string, priority: string, hreflangs: { lang: string; href: string }[]) {
   const hreflangLinks = hreflangs.map(

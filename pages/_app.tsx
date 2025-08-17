@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="Webtmize delivers high-ROI marketing solutions for e-commerce and SaaS brands. Let's grow together with proven strategies." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://webtimize.ca" />
+        <link rel="canonical" href="https://webtmize.ca" />
       </Head>
       <ThemeProvider defaultTheme="light" storageKey="webtmize-theme">
         <LanguageProvider>

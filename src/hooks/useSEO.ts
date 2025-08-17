@@ -171,8 +171,8 @@ export const generateOrganizationSchema = (language: string) => ({
   "description": language === 'fr' 
     ? "Webtmize offre des solutions marketing à haut ROI pour les marques e-commerce et SaaS. Grandissons ensemble."
     : "Webtmize delivers high-ROI marketing solutions for e-commerce and SaaS brands. Let's grow together.",
-  "url": "https://webtimize.ca",
-  "logo": "https://webtimize.ca/logo.png",
+  "url": "https://webtmize.ca",
+  "logo": "https://webtmize.ca/logo.png",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-555-123-4567",
@@ -197,10 +197,10 @@ export const generateWebsiteSchema = (language: string) => ({
   "description": language === 'fr' 
     ? "Agence de marketing digital spécialisée dans l'e-commerce et SaaS"
     : "Digital marketing agency specialized in e-commerce and SaaS",
-  "url": "https://webtimize.ca",
+  "url": "https://webtmize.ca",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://webtimize.ca/search?q={search_term_string}",
+    "target": "https://webtmize.ca/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 });
@@ -220,14 +220,14 @@ export const generateArticleSchema = (caseStudy: CaseStudy, language: string) =>
     "name": "Webtmize",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://webtimize.ca/logo.png"
+      "url": "https://webtmize.ca/logo.png"
     }
   },
   "datePublished": "2024-01-01",
   "dateModified": "2024-12-01",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://webtimize.ca/case-studies/${caseStudy.id}`
+    "@id": `https://webtmize.ca/case-studies/${caseStudy.id}`
   },
   "about": {
     "@type": "Thing",
