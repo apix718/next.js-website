@@ -12,8 +12,12 @@ const VoiceflowChat: React.FC<VoiceflowChatProps> = ({ autoLoad = true }) => {
     // Get project ID from environment variables
     const voiceflowProjectId = process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID;
 
-    if (!voiceflowProjectId) {
-      console.error('Voiceflow Project ID is not set. Please set NEXT_PUBLIC_VOICEFLOW_PROJECT_ID in your .env file.');
+    // --- ADDED FOR DEBUGGING ---
+    console.log('Voiceflow Project ID (from env):', voiceflowProjectId);
+    // --- END DEBUGGING ---
+
+    if (!voiceflowProjectId || voiceflowProjectId === 'YOUR_PROJECT_ID') { // Added check for placeholder
+      console.error('Voiceflow Project ID is not set or is a placeholder. Please set NEXT_PUBLIC_VOICEFLOW_PROJECT_ID in your .env file.');
       return;
     }
 
