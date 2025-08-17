@@ -2,14 +2,123 @@
   command = "npm run build"
   publish = ".next"
 
-[functions]
-  directory = "netlify/functions"
+[build.environment]
+  NODE_VERSION = "18"
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+# Redirect sitemap to dynamic function
 [[redirects]]
   from = "/sitemap.xml"
   to = "/.netlify/functions/sitemap"
   status = 200
   force = true
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+# Domain canonicalization - redirect all variations to canonical
+[[redirects]]
+  from = "https://www.webtimize.ca/*"
+  to = "https://webtimize.ca/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://webtimize.ca/*"
+  to = "https://webtimize.ca/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.webtimize.ca/*"
+  to = "https://webtimize.ca/:splat"
+  status = 301
+  force = true
+
+# Common misspelling redirects (redirect incorrect spelling to correct one)
+[[redirects]]
+  from = "https://webtmize.ca/*"
+  to = "https://webtimize.ca/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.webtmize.ca/*"
+  to = "https://webtimize.ca/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://webtmize.ca/*"
+  to = "https://webtimize.ca/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.webtmize.ca/*"
+  to = "https://webtimize.ca/:splat"
+  status = 301
+  force = true
+
+# Clean up trailing slashes for consistency
+[[redirects]]
+  from = "/blog/"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/case-studies/"
+  to = "/case-studies"
+  status = 301
+
+# Clean up query parameters for language switching
+[[redirects]]
+  from = "/blog?lang=*"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/case-studies?lang=*"
+  to = "/case-studies"
+  status = 301
+
+[[redirects]]
+  from = "/?lang=*"
+  to = "/"
+  status = 301
+
+# Headers for SEO and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/.netlify/functions/sitemap"
+  [headers.values]
+    Content-Type = "application/xml"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain"
+    Cache-Control = "public, max-age=86400"

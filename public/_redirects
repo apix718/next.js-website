@@ -1,20 +1,25 @@
-# Redirect rules for Netlify
+# Domain redirects - redirect all variations to canonical domain
+https://www.webtimize.ca/* https://webtimize.ca/:splat 301!
+http://webtimize.ca/* https://webtimize.ca/:splat 301!
+http://www.webtimize.ca/* https://webtimize.ca/:splat 301!
 
-# Handle SPA routing - send all non-file requests to index.html
-/*    /index.html   200
+# Common misspelling redirects (redirect incorrect spelling to correct one)
+https://webtmize.ca/* https://webtimize.ca/:splat 301!
+https://www.webtmize.ca/* https://webtimize.ca/:splat 301!
+http://webtmize.ca/* https://webtimize.ca/:splat 301!
+http://www.webtmize.ca/* https://webtimize.ca/:splat 301!
 
-# Redirect old URLs if any exist (add specific redirects here)
-# /old-blog/*  /blog/:splat  301
-# /old-case-studies/*  /case-studies/:splat  301
+# Trailing slash redirects - ensure consistency
+/blog/ /blog 301!
+/case-studies/ /case-studies 301!
 
-# Force HTTPS
-http://webtimize.ca/*  https://webtimize.ca/:splat  301!
-http://www.webtimize.ca/*  https://webtimize.ca/:splat  301!
-https://www.webtimize.ca/*  https://webtimize.ca/:splat  301!
+# Query parameter cleanup for language switching
+/blog?lang=* /blog 301!
+/case-studies?lang=* /case-studies 301!
+/?lang=* / 301!
 
-# API routes
-/api/*  /.netlify/functions/:splat  200
+# Sitemap redirect to dynamic version
+/sitemap.xml /.netlify/functions/sitemap 200
 
-# Sitemap routes
-/sitemap.xml  /api/sitemap.xml  200
-/sitemap  /api/sitemap.xml  200
+# Ensure all pages use HTTPS and canonical domain
+/* https://webtimize.ca/:splat 301!

@@ -17,10 +17,14 @@ function AppContent({ Component, pageProps }: AppProps) {
     const existingHreflangs = document.querySelectorAll('link[hreflang]');
     existingHreflangs.forEach(link => link.remove());
     
+    // Get current path without query parameters for canonical URL
+    const currentPath = window.location.pathname;
+    const canonicalUrl = `https://webtimize.ca${currentPath}`;
+    
     const hreflangs = [
-      { hreflang: 'en', href: 'https://webtimize.ca' },
-      { hreflang: 'fr', href: 'https://webtimize.ca?lang=fr' },
-      { hreflang: 'x-default', href: 'https://webtimize.ca' }
+      { hreflang: 'en', href: canonicalUrl },
+      { hreflang: 'fr', href: canonicalUrl },
+      { hreflang: 'x-default', href: canonicalUrl }
     ];
     
     hreflangs.forEach(({ hreflang, href }) => {
@@ -30,6 +34,17 @@ function AppContent({ Component, pageProps }: AppProps) {
       link.href = href;
       document.head.appendChild(link);
     });
+
+    // Update canonical link
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (canonicalLink) {
+      canonicalLink.href = canonicalUrl;
+    } else {
+      canonicalLink = document.createElement('link');
+      canonicalLink.rel = 'canonical';
+      canonicalLink.href = canonicalUrl;
+      document.head.appendChild(canonicalLink);
+    }
   }, [language]);
 
   return (
@@ -43,7 +58,7 @@ function AppContent({ Component, pageProps }: AppProps) {
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content={language} />
         
-        {/* Canonical URL */}
+        {/* Canonical and hreflang will be set dynamically via useEffect */}
         <link rel="canonical" href="https://webtimize.ca" />
         
         {/* Open Graph */}

@@ -2,28 +2,28 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://webtmize.ca/sitemap.xml
-Sitemap: https://webtmize.ca/api/sitemap.xml
+Sitemap: https://webtimize.ca/sitemap.xml
+Sitemap: https://webtimize.ca/.netlify/functions/sitemap
 
-# Allow all search engines to crawl
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all search engines to index the site
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-# Block access to admin and private areas (if any exist)
+User-agent: Slurp
+Allow: /
+
+# Block access to admin and private areas (if any)
 Disallow: /admin/
-Disallow: /private/
-Disallow: /.env
-Disallow: /api/private/
+Disallow: /.netlify/
+Disallow: /api/
 
-# Allow crawling of important directories
-Allow: /blog/
-Allow: /case-studies/
-Allow: /images/
-Allow: /css/
-Allow: /js/
-
-# Crawl delay (optional, can help with server load)
-Crawl-delay: 1
+# Allow access to important files
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /llms.txt
