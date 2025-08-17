@@ -199,7 +199,7 @@ export const generateWebsiteSchema = (language: string) => ({
   }
 });
 
-export const generateArticleSchema = (caseStudy: any, language: string) => ({
+export const generateArticleSchema = (caseStudy: Record<string, any>, language: string) => ({
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": caseStudy.title[language],
