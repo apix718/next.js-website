@@ -1,1 +1,0 @@
-/* Next.js handles rendering, no manual ReactDOM render needed */
