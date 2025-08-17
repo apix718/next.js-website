@@ -1,6 +1,17 @@
-import type { Handler } from './netlify-function-types';
 import { blogPosts } from '../../src/data/blogPosts';
 import { caseStudies } from '../../src/data/caseStudies';
+
+type HandlerEvent = any;
+type HandlerContext = any;
+
+type Handler = (
+  event: HandlerEvent,
+  context: HandlerContext
+) => Promise<{
+  statusCode: number;
+  headers?: Record<string, string>;
+  body: string;
+}>;
 
 const BASE_URL = 'https://webtimize.ca';
 
@@ -19,7 +30,7 @@ function generateUrlEntry(url: string, lastmod: string, changefreq: string, prio
   </url>`;
 }
 
-const handler: Handler = async (_event, _context) => {
+const handler: Handler = async (_event: HandlerEvent, _context: HandlerContext) => {
   const today = new Date().toISOString().split('T')[0];
 
   // Homepage
