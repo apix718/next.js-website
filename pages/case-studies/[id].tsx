@@ -11,71 +11,39 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useSEO, generateArticleSchema, generateOrganizationSchema } from '@/hooks/useSEO';
 
-export async function getStaticPaths() {
-  const paths = caseStudies.map((caseStudy) => ({
-    params: { id: caseStudy.id },
-  }));
-
-  return {
-    paths,
-    fallback: false, // Return 404 for unknown ids
-  };
-}
-
-export async function getStaticProps({ params }: { params: { id: string } }) {
-  const caseStudy = caseStudies.find((study) => study.id === params.id) || null;
-
-  return {
-    props: {
-      caseStudy,
-    },
-  };
-}
-
-interface CaseStudy {
-  id: string;
-  company: string;
-  title: { en: string; fr: string };
-  description: { en: string; fr: string };
-  industry: { en: string; fr: string };
-  image: string;
-  fullContent: {
-    challenge: { en: string; fr: string };
-    solution: { en: string; fr: string };
-    results: { en: string; fr: string };
-  };
-}
-
-interface CaseStudyDetailProps {
-  caseStudy: CaseStudy | null;
-}
-
-const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ caseStudy }) => {
+const CaseStudyDetail: React.FC = () => {
   const { t, language } = useLanguage();
   const router = useRouter();
+  const { id } = router.query;
+  const caseStudy = typeof id === 'string' ? caseStudies.find(study => study.id === id) : undefined;
 
-  // SEO Implementation for case study
-  if (caseStudy) {
-    // Create unique description for each case study
-    const uniqueDescription = language === 'fr'
-      ? `Étude de cas ${caseStudy.company} (${caseStudy.industry[language]}) : ${caseStudy.description[language].substring(0, 100)}... Stratégies marketing avec résultats mesurables.`
-      : `${caseStudy.company} case study (${caseStudy.industry[language]}): ${caseStudy.description[language].substring(0, 100)}... Marketing strategies with measurable results.`;
-    
-    useSEO({
-      title: `${caseStudy.company} Case Study - ${caseStudy.title[language]} | Webtmize`,
-      description: uniqueDescription,
-      url: `https://webtimize.ca/case-studies/${caseStudy.id}`,
-      type: 'article',
-      image: caseStudy.image,
-      author: 'Webtmize',
-      publishedTime: '2024-01-01T00:00:00Z',
-      modifiedTime: '2024-12-01T00:00:00Z',
-      structuredData: [
-        generateArticleSchema(caseStudy, language),
-        generateOrganizationSchema(language)
-      ]
-    });
-  }
+  // Prepare SEO data unconditionally
+  const seoData = caseStudy
+    ? {
+        title: `${caseStudy.company} Case Study - ${caseStudy.title[language]} | Webtmize`,
+        description: language === 'fr'
+          ? `Étude de cas ${caseStudy.company} (${caseStudy.industry[language]}) : ${caseStudy.description[language].substring(0, 100)}... Stratégies marketing avec résultats mesurables.`
+          : `${caseStudy.company} case study (${caseStudy.industry[language]}): ${caseStudy.description[language].substring(0, 100)}... Marketing strategies with measurable results.`,
+        url: `https://webtimize.ca/case-studies/${caseStudy.id}`,
+        type: 'article' as const,
+        image: caseStudy.image,
+        author: 'Webtmize',
+        publishedTime: '2024-01-01T00:00:00Z',
+        modifiedTime: '2024-12-01T00:00:00Z',
+        structuredData: [
+          generateArticleSchema(caseStudy, language),
+          generateOrganizationSchema(language)
+        ]
+      }
+    : {
+        title: language === 'fr' ? 'Étude de cas non trouvée | Webtmize' : 'Case Study Not Found | Webtmize',
+        description: '',
+        url: 'https://webtimize.ca/case-studies',
+        type: 'website' as const,
+        structuredData: generateOrganizationSchema(language)
+      };
+
+  useSEO(seoData);
 
   if (!caseStudy) {
     return (
@@ -92,8 +60,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ caseStudy }) => {
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.8, ease: [0.23, 0.86, 0.39, 0.96] }
     }

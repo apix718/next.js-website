@@ -17,52 +17,59 @@ const BlogPostDetail: React.FC = () => {
   const { id } = router.query;
   const post = typeof id === 'string' ? blogPosts.find(p => p.id === id) : undefined;
 
-  // SEO Implementation for blog post
-  if (post) {
-    // Create unique description for each blog post
-    const uniqueDescription = language === 'fr' 
-      ? `${post.excerpt[language].substring(0, 120)}... Article par ${post.author}, ${post.readTime}. Insights ${post.category[language].toLowerCase()}.`
-      : `${post.excerpt[language].substring(0, 120)}... Article by ${post.author}, ${post.readTime}. ${post.category[language]} insights.`;
-    
-    useSEO({
-      title: `${post.title[language]} - ${post.category[language]} | Webtmize`,
-      description: uniqueDescription,
-      url: `https://webtimize.ca/blog/${post.id}`,
-      type: 'article',
-      image: post.image,
-      author: post.author,
-      publishedTime: `${post.publishedDate}T00:00:00Z`,
-      modifiedTime: `${post.publishedDate}T00:00:00Z`,
-      structuredData: [
-        {
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": post.title[language],
-          "description": uniqueDescription,
-          "image": post.image,
-          "author": {
-            "@type": "Person",
-            "name": post.author
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Webtmize",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://webtimize.ca/logo.png"
+  // Prepare SEO data unconditionally
+  const seoData = post
+    ? {
+        title: `${post.title[language]} - ${post.category[language]} | Webtmize`,
+        description: language === 'fr'
+          ? `${post.excerpt[language].substring(0, 120)}... Article par ${post.author}, ${post.readTime}. Insights ${post.category[language].toLowerCase()}.`
+          : `${post.excerpt[language].substring(0, 120)}... Article by ${post.author}, ${post.readTime}. ${post.category[language]} insights.`,
+        url: `https://webtimize.ca/blog/${post.id}`,
+        type: 'article' as const,
+        image: post.image,
+        author: post.author,
+        publishedTime: `${post.publishedDate}T00:00:00Z`,
+        modifiedTime: `${post.publishedDate}T00:00:00Z`,
+        structuredData: [
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": post.title[language],
+            "description": language === 'fr'
+              ? `${post.excerpt[language].substring(0, 120)}... Article par ${post.author}, ${post.readTime}. Insights ${post.category[language].toLowerCase()}.`
+              : `${post.excerpt[language].substring(0, 120)}... Article by ${post.author}, ${post.readTime}. ${post.category[language]} insights.`,
+            "image": post.image,
+            "author": {
+              "@type": "Person",
+              "name": post.author
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Webtmize",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://webtimize.ca/logo.png"
+              }
+            },
+            "datePublished": `${post.publishedDate}T00:00:00Z`,
+            "dateModified": `${post.publishedDate}T00:00:00Z`,
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://webtimize.ca/blog/${post.id}`
             }
           },
-          "datePublished": `${post.publishedDate}T00:00:00Z`,
-          "dateModified": `${post.publishedDate}T00:00:00Z`,
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": `https://webtimize.ca/blog/${post.id}`
-          }
-        },
-        generateOrganizationSchema(language)
-      ]
-    });
-  }
+          generateOrganizationSchema(language)
+        ]
+      }
+    : {
+        title: language === 'fr' ? 'Article non trouvé | Webtmize' : 'Post not found | Webtmize',
+        description: '',
+        url: 'https://webtimize.ca/blog',
+        type: 'website' as const,
+        structuredData: generateOrganizationSchema(language)
+      };
+
+  useSEO(seoData);
 
   if (!post) {
     return (
@@ -83,8 +90,8 @@ const BlogPostDetail: React.FC = () => {
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.8, ease: [0.23, 0.86, 0.39, 0.96] }
     }
