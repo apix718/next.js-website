@@ -1,26 +1,13 @@
-# Sitemap redirect
+# Sitemap redirect to dynamic version
 /sitemap.xml /.netlify/functions/sitemap 200
 
-# Domain canonicalization - all variations to canonical
+# Domain redirects - redirect all variations directly to canonical domain
 https://www.webtimize.ca/* https://webtimize.ca/:splat 301!
 http://webtimize.ca/* https://webtimize.ca/:splat 301!
 http://www.webtimize.ca/* https://webtimize.ca/:splat 301!
 
-# Misspelling redirects
+# Misspelling redirects - redirect directly to correct domain
 https://webtmize.ca/* https://webtimize.ca/:splat 301!
 https://www.webtmize.ca/* https://webtimize.ca/:splat 301!
 http://webtmize.ca/* https://webtimize.ca/:splat 301!
 http://www.webtmize.ca/* https://webtimize.ca/:splat 301!
-
-# Remove trailing slashes
-/blog/ /blog 301!
-/case-studies/ /case-studies 301!
-/blog/*/ /blog/:splat 301!
-/case-studies/*/ /case-studies/:splat 301!
-
-# Remove query parameters (language switching)
-/blog?lang=* /blog 301!
-/case-studies?lang=* /case-studies 301!
-/?lang=* / 301!
-/blog/*?lang=* /blog/:splat 301!
-/case-studies/*?lang=* /case-studies/:splat 301!

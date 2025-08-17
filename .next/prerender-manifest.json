@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/blog/google-agency-leadership-circle-2025":{},"/blog/seo-ai-future-search-optimization":{},"/blog/how-webtmize-stays-ahead-data-science-ai":{},"/blog/master-seo-strategies-tips":{},"/blog/2025-best-ad-agencies-find-perfect-fit":{},"/blog/google-ads-optimization":{}},"dynamicRoutes":{"/blog/[id]":{"fallback":false}},"notFoundRoutes":[],"preview":{"previewModeId":"a82a24ace2813b65db12745a5447477a","previewModeSigningKey":"fd1dd312bfd919f8415319c4a08b9583d86c0e9a87de7bc7b0d94b7f8454b6db","previewModeEncryptionKey":"650ae9d40c4bddde1cb9440c0c498db7bce5e50b353149d4b86cd74ae8637f7a"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "a82a24ace2813b65db12745a5447477a",
+    "previewModeSigningKey": "fd1dd312bfd919f8415319c4a08b9583d86c0e9a87de7bc7b0d94b7f8454b6db",
+    "previewModeEncryptionKey": "650ae9d40c4bddde1cb9440c0c498db7bce5e50b353149d4b86cd74ae8637f7a"
+  }
+}
