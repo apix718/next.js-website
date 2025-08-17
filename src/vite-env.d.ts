@@ -2,7 +2,7 @@
 
 declare global {
   interface Window {
-    voiceflow: {
+    voiceflow?: {
       chat: {
         open(): void;
         load(config: unknown): void;
