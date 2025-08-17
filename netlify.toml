@@ -122,4 +122,3 @@
   [headers.values]
     Content-Type = "text/plain"
     Cache-Control = "public, max-age=86400"
-</headers>
