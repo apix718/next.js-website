@@ -12,6 +12,24 @@ function AppContent({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // Set HTML lang attribute dynamically
     document.documentElement.lang = language;
+    
+    // Add hreflang links dynamically to avoid TypeScript issues
+    const existingHreflangs = document.querySelectorAll('link[hreflang]');
+    existingHreflangs.forEach(link => link.remove());
+    
+    const hreflangs = [
+      { hreflang: 'en', href: 'https://webtimize.ca' },
+      { hreflang: 'fr', href: 'https://webtimize.ca?lang=fr' },
+      { hreflang: 'x-default', href: 'https://webtimize.ca' }
+    ];
+    
+    hreflangs.forEach(({ hreflang, href }) => {
+      const link = document.createElement('link');
+      link.rel = 'alternate';
+      link.hreflang = hreflang;
+      link.href = href;
+      document.head.appendChild(link);
+    });
   }, [language]);
 
   return (
@@ -25,11 +43,8 @@ function AppContent({ Component, pageProps }: AppProps) {
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content={language} />
         
-        {/* Canonical and hreflang */}
+        {/* Canonical URL */}
         <link rel="canonical" href="https://webtimize.ca" />
-        <link rel="alternate" hreflang="en" href="https://webtimize.ca" />
-        <link rel="alternate" hreflang="fr" href="https://webtimize.ca?lang=fr" />
-        <link rel="alternate" hreflang="x-default" href="https://webtimize.ca" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Webtmize - Digital Marketing Agency for E-commerce & SaaS Growth" />
@@ -68,8 +83,8 @@ function AppContent({ Component, pageProps }: AppProps) {
               "description": language === 'fr' 
                 ? "Webtmize offre des solutions marketing à haut ROI pour les marques e-commerce et SaaS. Grandissons ensemble."
                 : "Webtmize delivers high-ROI marketing solutions for e-commerce and SaaS brands. Let's grow together.",
-              "url": "https://webtmize.ca",
-              "logo": "https://webtmize.ca/logo.png",
+              "url": "https://webtimize.ca",
+              "logo": "https://webtimize.ca/logo.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+1-555-123-4567",
