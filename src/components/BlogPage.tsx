@@ -79,7 +79,7 @@ const BlogPage: React.FC = () => {
                   <div className="flex flex-wrap gap-2 mb-4">
                     {post.tags.slice(0,3).map(tag => <span key={tag} className="flex items-center gap-1 px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs"><Tag className="w-3 h-3" />{tag}</span>)}
                   </div>
-                  <Link href={`/blog/${post.id}`}><Button className="w-full">{language==='fr'?'Lire l’Article':'Read Article'}<ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
+                  <Link href={`/blog/${post.id}`}><Button className="w-full">{language==='fr'?'Lire l'Article':'Read Article'}<ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
                 </div>
               </motion.div>
             ))}
