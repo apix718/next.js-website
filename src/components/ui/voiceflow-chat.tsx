@@ -9,15 +9,11 @@ const VoiceflowChat: React.FC<VoiceflowChatProps> = ({ autoLoad = true }) => {
     // Only run on client-side and if autoLoad is true
     if (typeof window === 'undefined' || !autoLoad) return;
 
-    // Get project ID from environment variables
-    const voiceflowProjectId = process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID;
+    // Use the specific project ID provided
+    const voiceflowProjectId = '6879820015a3d2e835a9a691';
 
-    // --- ADDED FOR DEBUGGING ---
-    console.log('Voiceflow Project ID (from env):', voiceflowProjectId);
-    // --- END DEBUGGING ---
-
-    if (!voiceflowProjectId || voiceflowProjectId === 'YOUR_PROJECT_ID') { // Added check for placeholder
-      console.error('Voiceflow Project ID is not set or is a placeholder. Please set NEXT_PUBLIC_VOICEFLOW_PROJECT_ID in your .env file.');
+    if (!voiceflowProjectId) {
+      console.error('Voiceflow Project ID is not set.');
       return;
     }
 
@@ -30,7 +26,7 @@ const VoiceflowChat: React.FC<VoiceflowChatProps> = ({ autoLoad = true }) => {
             var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
             v.onload = function() {
               window.voiceflow.chat.load({
-                verify: { projectID: '${voiceflowProjectId}' }, // Use the environment variable here
+                verify: { projectID: '${voiceflowProjectId}' },
                 url: 'https://general-runtime.voiceflow.com',
                 versionID: 'production',
                 voice: {
