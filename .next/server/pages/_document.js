@@ -60,7 +60,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next@15.4.6_@babel+core@7.2_18a0c6d5787519158ad43d5fb9e644cf","vendor-chunks/@swc+helpers@0.5.15"], () => (__webpack_exec__("(pages-dir-node)/./node_modules/.pnpm/next@15.4.6_@babel+core@7.2_18a0c6d5787519158ad43d5fb9e644cf/node_modules/next/dist/pages/_document.js")));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next@15.4.6_react-dom@18.3.1_react@18.3.1__react@18.3.1","vendor-chunks/@swc+helpers@0.5.15"], () => (__webpack_exec__("(pages-dir-node)/./node_modules/.pnpm/next@15.4.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/pages/_document.js")));
 module.exports = __webpack_exports__;
 
 })();
