@@ -5,7 +5,7 @@ declare global {
     voiceflow: {
       chat: {
         open(): void;
-        load(config: any): void;
+        load(config: unknown): void;
       };
     };
   }
