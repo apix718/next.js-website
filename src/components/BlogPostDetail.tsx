@@ -1,5 +1,6 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import { ArrowLeft, Clock, User, Tag, Calendar } from 'lucide-react';
@@ -9,10 +10,12 @@ import { blogPosts } from '@/data/blogPosts';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useSEO, generateOrganizationSchema } from '@/hooks/useSEO';
+
 const BlogPostDetail: React.FC = () => {
   const { t, language } = useLanguage();
-  const { id } = useParams<{ id: string }>();
-  const post = blogPosts.find(p => p.id === id);
+  const router = useRouter();
+  const { id } = router.query;
+  const post = typeof id === 'string' ? blogPosts.find(p => p.id === id) : undefined;
 
   // SEO Implementation for blog post
   if (post) {
@@ -68,7 +71,7 @@ const BlogPostDetail: React.FC = () => {
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             {language === 'fr' ? 'Article non trouvé' : 'Post not found'}
           </h1>
-          <Link to="/blog">
+          <Link href="/blog">
             <Button>
               {language === 'fr' ? 'Retour au Blog' : 'Back to Blog'}
             </Button>
@@ -104,12 +107,12 @@ const BlogPostDetail: React.FC = () => {
       <nav className="fixed top-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-blue-100 dark:border-gray-700 z-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            <Link to="/" className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+            <Link href="/" className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               Webtmize
             </Link>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
-              <Link to="/blog">
+              <Link href="/blog">
                 <Button variant="outline" size="sm">
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   {language === 'fr' ? 'Retour au Blog' : 'Back to Blog'}
@@ -231,7 +234,7 @@ const BlogPostDetail: React.FC = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link to="/case-studies" className="group">
+            <Link href="/case-studies" className="group">
               <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                   {language === 'fr' ? 'Études de Cas Clients' : 'Client Case Studies'}
@@ -292,7 +295,7 @@ const BlogPostDetail: React.FC = () => {
               >
                 🤖 Book Your Call with AI
               </Button>
-              <Link to="/blog">
+              <Link href="/blog">
                 <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
                   {language === 'fr' ? 'Plus d\'Articles' : 'More Articles'}
                 </Button>
@@ -305,16 +308,16 @@ const BlogPostDetail: React.FC = () => {
       {/* Footer */}
       <footer className="bg-white dark:bg-gray-900 border-t border-blue-100 dark:border-gray-700 py-12 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4 inline-block">
+          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4 inline-block">
             Webtmize
           </Link>
           <p className="text-gray-700 dark:text-gray-300 mb-4">
             {t('footer.description')}
           </p>
           <div className="flex justify-center space-x-6 text-sm text-gray-700 dark:text-gray-300">
-            <Link to="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.about')}</Link>
-            <Link to="/case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.caseStudies')}</Link>
-            <Link to="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.blog')}</Link>
+            <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.about')}</Link>
+            <Link href="/case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.caseStudies')}</Link>
+            <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.blog')}</Link>
             <a href="/#contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('nav.contact')}</a>
           </div>
         </div>

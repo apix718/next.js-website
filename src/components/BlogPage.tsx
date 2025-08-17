@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Clock, Tag } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -9,6 +9,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from '@/components/ui/language-switcher';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useSEO, generateOrganizationSchema } from '@/hooks/useSEO';
+
 const BlogPage: React.FC = () => {
   const { t, language } = useLanguage();
 
@@ -55,7 +56,7 @@ const BlogPage: React.FC = () => {
       <nav className="fixed top-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-blue-100 dark:border-gray-700 z-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            <Link to="/" className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+            <Link href="/" className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               Webtmize
             </Link>
             
@@ -65,7 +66,7 @@ const BlogPage: React.FC = () => {
               <a href="/#services" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 {t('nav.services')}
               </a>
-              <Link to="/case-studies" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/case-studies" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 {t('nav.caseStudies')}
               </Link>
               <span className="text-blue-600 dark:text-blue-400 font-medium">Blog</span>
@@ -84,7 +85,7 @@ const BlogPage: React.FC = () => {
               </Button>
             </div>
 
-            <Link to="/" className="md:hidden">
+            <Link href="/" className="md:hidden">
               <Button variant="outline" size="sm">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 {t('nav.back')}
@@ -203,7 +204,7 @@ const BlogPage: React.FC = () => {
                     </div>
 
                     {/* Read More Button */}
-                    <Link to={`/blog/${post.id}`}>
+                    <Link href={`/blog/${post.id}`}>
                       <Button 
                         className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900 group-hover:shadow-lg transition-all"
                       >
@@ -303,7 +304,7 @@ const BlogPage: React.FC = () => {
                     </div>
 
                     {/* Read More Button */}
-                    <Link to={`/blog/${post.id}`}>
+                    <Link href={`/blog/${post.id}`}>
                       <Button 
                         className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900 group-hover:shadow-lg transition-all"
                       >
@@ -355,56 +356,18 @@ const BlogPage: React.FC = () => {
 
       {/* Footer */}
       <footer className="bg-white dark:bg-gray-900 border-t border-blue-100 dark:border-gray-700 py-12 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4">
-                Webtmize
-              </div>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                {t('footer.description')}
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">{t('footer.services')}</h4>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.ecommerce')}</a></li>
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.saas')}</a></li>
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.performance')}</a></li>
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.cro')}</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">{t('footer.company')}</h4>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                <li><Link to="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.about')}</Link></li>
-                <li><Link to="/case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.caseStudies')}</Link></li>
-                <li><Link to="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.blog')}</Link></li>
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.careers')}</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">{t('nav.contact')}</h4>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                <li>hello@webtmize.com</li>
-                <li>{t('contact.phone')}</li>
-                <li>{t('contact.address')}</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-blue-100 dark:border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-700 dark:text-gray-300">
-              {t('footer.copyright')}
-            </p>
-            <div className="flex space-x-6 text-sm text-gray-700 dark:text-gray-300 mt-4 md:mt-0">
-              <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.privacy')}</a>
-              <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.terms')}</a>
-              <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.cookies')}</a>
-            </div>
+        <div className="max-w-7xl mx-auto text-center">
+          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4 inline-block">
+            Webtmize
+          </Link>
+          <p className="text-gray-700 dark:text-gray-300 mb-4">
+            {t('footer.description')}
+          </p>
+          <div className="flex justify-center space-x-6 text-sm text-gray-700 dark:text-gray-300">
+            <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.about')}</Link>
+            <Link href="/case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.caseStudies')}</Link>
+            <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.blog')}</Link>
+            <a href="/#contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('nav.contact')}</a>
           </div>
         </div>
       </footer>

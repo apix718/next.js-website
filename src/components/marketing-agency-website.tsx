@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight,
@@ -163,7 +163,7 @@ const MarketingAgencyWebsite: React.FC = () => {
                       transition={{ delay: index * 0.1 }}
                     >
                       <Link
-                        to={item.href}
+                        href={item.href}
                         className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                       >
                         {item.label}
@@ -224,7 +224,7 @@ const MarketingAgencyWebsite: React.FC = () => {
                       return (
                         <Link
                           key={item.label}
-                          to={item.href}
+                          href={item.href}
                           className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                           onClick={() => setIsMenuOpen(false)}
                         >

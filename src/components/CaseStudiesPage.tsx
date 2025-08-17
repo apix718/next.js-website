@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -53,7 +53,7 @@ const CaseStudiesPage: React.FC = () => {
       <nav className="fixed top-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-blue-100 dark:border-gray-700 z-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            <Link to="/" className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+            <Link href="/" className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               Webtmize
             </Link>
             
@@ -64,7 +64,7 @@ const CaseStudiesPage: React.FC = () => {
                 {t('nav.services')}
               </a>
               <span className="text-blue-600 dark:text-blue-400 font-medium">{t('nav.caseStudies')}</span>
-              <Link to="/blog" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/blog" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 {t('nav.blog')}
               </Link>
               <a href="/#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
@@ -82,7 +82,7 @@ const CaseStudiesPage: React.FC = () => {
               </Button>
             </div>
 
-            <Link to="/" className="md:hidden">
+            <Link href="/" className="md:hidden">
               <Button variant="outline" size="sm">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 {t('nav.back')}
@@ -167,7 +167,7 @@ const CaseStudiesPage: React.FC = () => {
                   </p>
 
                   {/* Read More Button */}
-                  <Link to={`/case-studies/${caseStudy.id}`}>
+                  <Link href={`/case-studies/${caseStudy.id}`}>
                     <Button 
                       className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900 group-hover:shadow-lg transition-all mt-4"
                     >
@@ -239,9 +239,9 @@ const CaseStudiesPage: React.FC = () => {
             <div>
               <h4 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">{t('footer.company')}</h4>
               <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                <li><Link to="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.about')}</Link></li>
-                <li><Link to="/case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.caseStudies')}</Link></li>
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.blog')}</a></li>
+                <li><Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.about')}</Link></li>
+                <li><Link href="/case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.caseStudies')}</Link></li>
+                <li><Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.blog')}</Link></li>
                 <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.careers')}</a></li>
               </ul>
             </div>

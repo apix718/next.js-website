@@ -1,5 +1,6 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import { ArrowLeft } from 'lucide-react';
@@ -12,8 +13,9 @@ import { useSEO, generateArticleSchema, generateOrganizationSchema } from '@/hoo
 
 const CaseStudyDetail: React.FC = () => {
   const { t, language } = useLanguage();
-  const { id } = useParams<{ id: string }>();
-  const caseStudy = caseStudies.find(study => study.id === id);
+  const router = useRouter();
+  const { id } = router.query;
+  const caseStudy = typeof id === 'string' ? caseStudies.find(study => study.id === id) : undefined;
 
   // SEO Implementation for case study
   if (caseStudy) {
@@ -43,7 +45,7 @@ const CaseStudyDetail: React.FC = () => {
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">{t('caseStudies.notFound')}</h1>
-          <Link to="/">
+          <Link href="/">
             <Button>{t('caseStudies.returnHome')}</Button>
           </Link>
         </div>
@@ -77,17 +79,15 @@ const CaseStudyDetail: React.FC = () => {
       <nav className="fixed top-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-blue-100 dark:border-gray-700 z-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            <Link to="/" className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+            <Link href="/" className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               Webtmize
             </Link>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
-              <Link to="/">
-                <Button variant="outline" size="sm">
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  {t('nav.backHome')}
-                </Button>
-              </Link>
+              <Button variant="outline" size="sm" onClick={() => router.back()}>
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                {t('nav.backHome')}
+              </Button>
             </div>
           </div>
         </div>
@@ -208,7 +208,7 @@ const CaseStudyDetail: React.FC = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Link to="/case-studies" className="group">
+            <Link href="/case-studies" className="group">
               <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                   {language === 'fr' ? 'Plus d\'Études de Cas' : 'More Case Studies'}
@@ -222,7 +222,7 @@ const CaseStudyDetail: React.FC = () => {
               </div>
             </Link>
 
-            <Link to="/blog" className="group">
+            <Link href="/blog" className="group">
               <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                   {language === 'fr' ? 'Guides Marketing' : 'Marketing Guides'}
@@ -256,7 +256,7 @@ const CaseStudyDetail: React.FC = () => {
       {/* Footer */}
       <footer className="bg-white dark:bg-gray-900 border-t border-blue-100 dark:border-gray-700 py-12 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4 inline-block">
+          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4 inline-block">
             Webtmize
           </Link>
           <p className="text-gray-700 dark:text-gray-300 mb-4">
