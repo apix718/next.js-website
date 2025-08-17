@@ -6,21 +6,21 @@ const BASE_URL = 'https://webtimize.ca';
 
 function generateUrlEntry(url: string, lastmod: string, changefreq: string, priority: string, hreflangs: { lang: string; href: string }[]) {
   const hreflangLinks = hreflangs.map(
-    (link) => `<xhtml:link rel="alternate" hreflang="${link.lang}" href="${link.href}" />`
-  ).join('\n    ');
+    (link) => `    <xhtml:link rel="alternate" hreflang="${link.lang}" href="${link.href}" />`
+  ).join('\n');
 
-  return `
-  <url>
+  return `  <url>
     <loc>${url}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-    ${hreflangLinks}
+${hreflangLinks}
   </url>`;
 }
 
 export default function handler(_req: NextApiRequest, res: NextApiResponse) {
   res.setHeader('Content-Type', 'application/xml');
+  res.setHeader('Cache-Control', 'public, max-age=3600');
 
   const today = new Date().toISOString().split('T')[0];
 
@@ -50,7 +50,7 @@ export default function handler(_req: NextApiRequest, res: NextApiResponse) {
     ]
   );
 
-  // Blog posts - ONLY EXISTING ONES
+  // Blog posts - Only existing ones
   const blogPostEntries = blogPosts.map(post => {
     const lastmod = post.publishedDate || today;
     return generateUrlEntry(
@@ -64,7 +64,7 @@ export default function handler(_req: NextApiRequest, res: NextApiResponse) {
         { lang: 'x-default', href: `${BASE_URL}/blog/${post.id}` },
       ]
     );
-  }).join('');
+  }).join('\n');
 
   // Case studies index
   const caseStudiesIndexEntry = generateUrlEntry(
@@ -81,7 +81,7 @@ export default function handler(_req: NextApiRequest, res: NextApiResponse) {
 
   // Case studies posts
   const caseStudyEntries = caseStudies.map(study => {
-    const lastmod = '2024-12-01'; // You can customize or add lastmod to your data if needed
+    const lastmod = '2024-12-01';
     return generateUrlEntry(
       `${BASE_URL}/case-studies/${study.id}`,
       lastmod,
@@ -93,18 +93,15 @@ export default function handler(_req: NextApiRequest, res: NextApiResponse) {
         { lang: 'x-default', href: `${BASE_URL}/case-studies/${study.id}` },
       ]
     );
-  }).join('');
+  }).join('\n');
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"
->
-  ${homepageEntry}
-  ${blogIndexEntry}
-  ${blogPostEntries}
-  ${caseStudiesIndexEntry}
-  ${caseStudyEntries}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${homepageEntry}
+${blogIndexEntry}
+${blogPostEntries}
+${caseStudiesIndexEntry}
+${caseStudyEntries}
 </urlset>`;
 
   res.status(200).send(sitemap);

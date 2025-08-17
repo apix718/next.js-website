@@ -1,1 +1,20 @@
+# Redirect rules for Netlify
+
+# Handle SPA routing - send all non-file requests to index.html
 /*    /index.html   200
+
+# Redirect old URLs if any exist (add specific redirects here)
+# /old-blog/*  /blog/:splat  301
+# /old-case-studies/*  /case-studies/:splat  301
+
+# Force HTTPS
+http://webtimize.ca/*  https://webtimize.ca/:splat  301!
+http://www.webtimize.ca/*  https://webtimize.ca/:splat  301!
+https://www.webtimize.ca/*  https://webtimize.ca/:splat  301!
+
+# API routes
+/api/*  /.netlify/functions/:splat  200
+
+# Sitemap routes
+/sitemap.xml  /api/sitemap.xml  200
+/sitemap  /api/sitemap.xml  200
