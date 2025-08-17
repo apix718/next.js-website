@@ -17,23 +17,22 @@ const BASE_URL = 'https://webtimize.ca';
 
 function generateUrlEntry(url: string, lastmod: string, changefreq: string, priority: string, hreflangs: { lang: string; href: string }[]) {
   const hreflangLinks = hreflangs.map(
-    (link) => `<xhtml:link rel="alternate" hreflang="${link.lang}" href="${link.href}" />`
-  ).join('\n    ');
+    (link) => `    <xhtml:link rel="alternate" hreflang="${link.lang}" href="${link.href}" />`
+  ).join('\n');
 
-  return `
-  <url>
+  return `  <url>
     <loc>${url}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-    ${hreflangLinks}
+${hreflangLinks}
   </url>`;
 }
 
 const handler: Handler = async (_event: HandlerEvent, _context: HandlerContext) => {
   const today = new Date().toISOString().split('T')[0];
 
-  // Homepage
+  // Homepage - canonical URL without query parameters
   const homepageEntry = generateUrlEntry(
     `${BASE_URL}/`,
     today,
@@ -41,12 +40,12 @@ const handler: Handler = async (_event: HandlerEvent, _context: HandlerContext) 
     '1.0',
     [
       { lang: 'en', href: `${BASE_URL}/` },
-      { lang: 'fr', href: `${BASE_URL}/?lang=fr` },
+      { lang: 'fr', href: `${BASE_URL}/` },
       { lang: 'x-default', href: `${BASE_URL}/` },
     ]
   );
 
-  // Blog index
+  // Blog index - canonical URL without query parameters
   const blogIndexEntry = generateUrlEntry(
     `${BASE_URL}/blog`,
     today,
@@ -54,28 +53,29 @@ const handler: Handler = async (_event: HandlerEvent, _context: HandlerContext) 
     '0.8',
     [
       { lang: 'en', href: `${BASE_URL}/blog` },
-      { lang: 'fr', href: `${BASE_URL}/blog?lang=fr` },
+      { lang: 'fr', href: `${BASE_URL}/blog` },
       { lang: 'x-default', href: `${BASE_URL}/blog` },
     ]
   );
 
-  // Blog posts
+  // Blog posts - canonical URLs without query parameters
   const blogPostEntries = blogPosts.map(post => {
     const lastmod = post.publishedDate || today;
+    const canonicalUrl = `${BASE_URL}/blog/${post.id}`;
     return generateUrlEntry(
-      `${BASE_URL}/blog/${post.id}`,
+      canonicalUrl,
       lastmod,
       'monthly',
       '0.7',
       [
-        { lang: 'en', href: `${BASE_URL}/blog/${post.id}` },
-        { lang: 'fr', href: `${BASE_URL}/blog/${post.id}?lang=fr` },
-        { lang: 'x-default', href: `${BASE_URL}/blog/${post.id}` },
+        { lang: 'en', href: canonicalUrl },
+        { lang: 'fr', href: canonicalUrl },
+        { lang: 'x-default', href: canonicalUrl },
       ]
     );
-  }).join('');
+  }).join('\n');
 
-  // Case studies index
+  // Case studies index - canonical URL without query parameters
   const caseStudiesIndexEntry = generateUrlEntry(
     `${BASE_URL}/case-studies`,
     today,
@@ -83,44 +83,42 @@ const handler: Handler = async (_event: HandlerEvent, _context: HandlerContext) 
     '0.8',
     [
       { lang: 'en', href: `${BASE_URL}/case-studies` },
-      { lang: 'fr', href: `${BASE_URL}/case-studies?lang=fr` },
+      { lang: 'fr', href: `${BASE_URL}/case-studies` },
       { lang: 'x-default', href: `${BASE_URL}/case-studies` },
     ]
   );
 
-  // Case studies posts
+  // Case studies posts - canonical URLs without query parameters
   const caseStudyEntries = caseStudies.map(study => {
-    const lastmod = '2024-12-01'; // Customize if needed
+    const lastmod = '2024-12-01';
+    const canonicalUrl = `${BASE_URL}/case-studies/${study.id}`;
     return generateUrlEntry(
-      `${BASE_URL}/case-studies/${study.id}`,
+      canonicalUrl,
       lastmod,
       'monthly',
       '0.7',
       [
-        { lang: 'en', href: `${BASE_URL}/case-studies/${study.id}` },
-        { lang: 'fr', href: `${BASE_URL}/case-studies/${study.id}?lang=fr` },
-        { lang: 'x-default', href: `${BASE_URL}/case-studies/${study.id}` },
+        { lang: 'en', href: canonicalUrl },
+        { lang: 'fr', href: canonicalUrl },
+        { lang: 'x-default', href: canonicalUrl },
       ]
     );
-  }).join('');
+  }).join('\n');
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"
->
-  ${homepageEntry}
-  ${blogIndexEntry}
-  ${blogPostEntries}
-  ${caseStudiesIndexEntry}
-  ${caseStudyEntries}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${homepageEntry}
+${blogIndexEntry}
+${blogPostEntries}
+${caseStudiesIndexEntry}
+${caseStudyEntries}
 </urlset>`;
 
   return {
     statusCode: 200,
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600', // Cache for 1 hour
+      'Cache-Control': 'public, max-age=3600',
     },
     body: sitemap,
   };
