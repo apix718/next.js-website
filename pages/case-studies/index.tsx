@@ -10,29 +10,7 @@ import LanguageSwitcher from '@/components/ui/language-switcher';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useSEO, generateOrganizationSchema } from '@/hooks/useSEO';
 
-export async function getStaticProps() {
-  // Static generation with caseStudies data
-  return {
-    props: {
-      caseStudies,
-    },
-  };
-}
-
-interface CaseStudy {
-  id: string;
-  company: string;
-  title: { en: string; fr: string };
-  description: { en: string; fr: string };
-  industry: { en: string; fr: string };
-  image: string;
-}
-
-interface CaseStudiesPageProps {
-  caseStudies: CaseStudy[];
-}
-
-const CaseStudiesPage: React.FC<CaseStudiesPageProps> = ({ caseStudies }) => {
+const CaseStudiesPage: React.FC = () => {
   const { t, language } = useLanguage();
 
   // SEO Implementation
