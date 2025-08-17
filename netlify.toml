@@ -11,14 +11,14 @@
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
 
-# Redirect sitemap to dynamic function
+# Sitemap redirect to dynamic function
 [[redirects]]
   from = "/sitemap.xml"
   to = "/.netlify/functions/sitemap"
   status = 200
   force = true
 
-# Domain canonicalization - redirect all variations to canonical
+# Domain canonicalization - only redirect www and http variants
 [[redirects]]
   from = "https://www.webtimize.ca/*"
   to = "https://webtimize.ca/:splat"
@@ -37,7 +37,7 @@
   status = 301
   force = true
 
-# Common misspelling redirects (redirect incorrect spelling to correct one)
+# Misspelling redirects - redirect directly to final destination
 [[redirects]]
   from = "https://webtmize.ca/*"
   to = "https://webtimize.ca/:splat"
@@ -61,33 +61,6 @@
   to = "https://webtimize.ca/:splat"
   status = 301
   force = true
-
-# Clean up trailing slashes for consistency
-[[redirects]]
-  from = "/blog/"
-  to = "/blog"
-  status = 301
-
-[[redirects]]
-  from = "/case-studies/"
-  to = "/case-studies"
-  status = 301
-
-# Clean up query parameters for language switching
-[[redirects]]
-  from = "/blog?lang=*"
-  to = "/blog"
-  status = 301
-
-[[redirects]]
-  from = "/case-studies?lang=*"
-  to = "/case-studies"
-  status = 301
-
-[[redirects]]
-  from = "/?lang=*"
-  to = "/"
-  status = 301
 
 # Headers for SEO and performance
 [[headers]]
