@@ -382,56 +382,18 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPosts }) => {
 
       {/* Footer */}
       <footer className="bg-white dark:bg-gray-900 border-t border-blue-100 dark:border-gray-700 py-12 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4">
-                Webtmize
-              </div>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                {t('footer.description')}
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">{t('footer.services')}</h4>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.ecommerce')}</a></li>
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.saas')}</a></li>
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.performance')}</a></li>
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.cro')}</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">{t('footer.company')}</h4>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                <li><Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.about')}</Link></li>
-                <li><Link href="/case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.caseStudies')}</Link></li>
-                <li><Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.blog')}</Link></li>
-                <li><a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.careers')}</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">{t('nav.contact')}</h4>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                <li>hello@webtmize.com</li>
-                <li>{t('contact.phone')}</li>
-                <li>{t('contact.address')}</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-blue-100 dark:border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-700 dark:text-gray-300">
-              {t('footer.copyright')}
-            </p>
-            <div className="flex space-x-6 text-sm text-gray-700 dark:text-gray-300 mt-4 md:mt-0">
-              <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.privacy')}</a>
-              <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.terms')}</a>
-              <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.cookies')}</a>
-            </div>
+        <div className="max-w-7xl mx-auto text-center">
+          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4 inline-block">
+            Webtmize
+          </Link>
+          <p className="text-gray-700 dark:text-gray-300 mb-4">
+            {t('footer.description')}
+          </p>
+          <div className="flex justify-center space-x-6 text-sm text-gray-700 dark:text-gray-300">
+            <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.about')}</Link>
+            <Link href="/case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.caseStudies')}</Link>
+            <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.blog')}</Link>
+            <a href="/#contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('nav.contact')}</a>
           </div>
         </div>
       </footer>
