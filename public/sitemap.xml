@@ -22,10 +22,10 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/blog?lang=fr" />
   </url>
   
-  <!-- Individual Blog Posts -->
+  <!-- Individual Blog Posts - ONLY EXISTING ONES -->
   <url>
     <loc>https://webtimize.ca/blog/google-agency-leadership-circle-2025</loc>
-    <lastmod>2025-07-03</lastmod>
+    <lastmod>2025-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/blog/google-agency-leadership-circle-2025" />
@@ -51,21 +51,21 @@
   </url>
   
   <url>
-    <loc>https://webtimize.ca/blog/best-marketing-companies-canada-2025</loc>
-    <lastmod>2025-01-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/blog/best-marketing-companies-canada-2025" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/blog/best-marketing-companies-canada-2025?lang=fr" />
-  </url>
-  
-  <url>
     <loc>https://webtimize.ca/blog/master-seo-strategies-tips</loc>
     <lastmod>2025-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/blog/master-seo-strategies-tips" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/blog/master-seo-strategies-tips?lang=fr" />
+  </url>
+
+  <url>
+    <loc>https://webtimize.ca/blog/2025-best-ad-agencies-find-perfect-fit</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/blog/2025-best-ad-agencies-find-perfect-fit" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/blog/2025-best-ad-agencies-find-perfect-fit?lang=fr" />
   </url>
   
   <!-- Case Studies Page -->

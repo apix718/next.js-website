@@ -50,7 +50,7 @@ export default function handler(_req: NextApiRequest, res: NextApiResponse) {
     ]
   );
 
-  // Blog posts
+  // Blog posts - ONLY EXISTING ONES
   const blogPostEntries = blogPosts.map(post => {
     const lastmod = post.publishedDate || today;
     return generateUrlEntry(

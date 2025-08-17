@@ -33,7 +33,7 @@ export const useSEO = (seoData: SEOData) => {
       const attribute = property ? 'property' : 'name';
       const selector = `meta[${attribute}="${name}"]`;
       
-      let element = document.querySelector(selector);
+      let element = document.querySelector(selector) as HTMLMetaElement;
       if (element) {
         element.setAttribute('content', content);
       } else {
@@ -44,18 +44,18 @@ export const useSEO = (seoData: SEOData) => {
       }
     };
 
-    // Helper function to update title specifically
+    // Helper function to update title - FIXED
     const updateTitle = (title: string) => {
-      // Only update the existing title element, don't create duplicates
-      let titleElement = document.querySelector('title');
-      if (titleElement) {
-        titleElement.textContent = title;
-      } else {
-        // Only create if it doesn't exist
+      // Update document title
+      document.title = title;
+      
+      // Ensure there's a title element in head
+      let titleElement = document.querySelector('title') as HTMLTitleElement;
+      if (!titleElement) {
         titleElement = document.createElement('title');
-        titleElement.textContent = title;
         document.head.appendChild(titleElement);
       }
+      titleElement.textContent = title;
     };
 
     // Helper function to update or create link tag
@@ -64,7 +64,7 @@ export const useSEO = (seoData: SEOData) => {
         ? `link[rel="${rel}"][hreflang="${hreflang}"]`
         : `link[rel="${rel}"]`;
       
-      let element = document.querySelector(selector);
+      let element = document.querySelector(selector) as HTMLLinkElement;
       if (element) {
         element.setAttribute('href', href);
       } else {
@@ -78,7 +78,7 @@ export const useSEO = (seoData: SEOData) => {
       }
     };
 
-    // Update title first
+    // Update title first - THIS IS THE KEY FIX
     updateTitle(seoData.title);
 
     // Basic meta tags
@@ -159,8 +159,6 @@ export const useSEO = (seoData: SEOData) => {
     updateMetaTag('robots', 'index, follow');
     updateMetaTag('googlebot', 'index, follow');
     updateMetaTag('viewport', 'width=device-width, initial-scale=1.0');
-    
-    // Ensure we have a proper title tag in head
 
   }, [seoData, language]);
 };
