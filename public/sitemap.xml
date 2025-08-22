@@ -1,139 +1,91 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <!-- Homepage -->
-  <url>
-    <loc>https://webtimize.ca/</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/" />
-  </url>
-  
-  <!-- Blog Page -->
-  <url>
-    <loc>https://webtimize.ca/blog</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/blog" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/blog" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/blog" />
-  </url>
-  
-  <!-- Blog Posts -->
-  <url>
-    <loc>https://webtimize.ca/blog/google-agency-leadership-circle-2025</loc>
-    <lastmod>2025-01-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/blog/google-agency-leadership-circle-2025" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/blog/google-agency-leadership-circle-2025" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/blog/google-agency-leadership-circle-2025" />
-  </url>
-  
-  <url>
-    <loc>https://webtimize.ca/blog/seo-ai-future-search-optimization</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/blog/seo-ai-future-search-optimization" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/blog/seo-ai-future-search-optimization" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/blog/seo-ai-future-search-optimization" />
-  </url>
-  
-  <url>
-    <loc>https://webtimize.ca/blog/how-webtmize-stays-ahead-data-science-ai</loc>
-    <lastmod>2025-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/blog/how-webtmize-stays-ahead-data-science-ai" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/blog/how-webtmize-stays-ahead-data-science-ai" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/blog/how-webtmize-stays-ahead-data-science-ai" />
-  </url>
-  
-  <url>
-    <loc>https://webtimize.ca/blog/master-seo-strategies-tips</loc>
-    <lastmod>2025-01-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/blog/master-seo-strategies-tips" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/blog/master-seo-strategies-tips" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/blog/master-seo-strategies-tips" />
-  </url>
-
-  <url>
-    <loc>https://webtimize.ca/blog/2025-best-ad-agencies-find-perfect-fit</loc>
-    <lastmod>2025-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/blog/2025-best-ad-agencies-find-perfect-fit" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/blog/2025-best-ad-agencies-find-perfect-fit" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/blog/2025-best-ad-agencies-find-perfect-fit" />
-  </url>
-  
-  <!-- Case Studies Page -->
-  <url>
-    <loc>https://webtimize.ca/case-studies</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/case-studies" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/case-studies" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/case-studies" />
-  </url>
-  
-  <!-- Case Studies -->
-  <url>
-    <loc>https://webtimize.ca/case-studies/pajar</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/case-studies/pajar" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/case-studies/pajar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/case-studies/pajar" />
-  </url>
-  
-  <url>
-    <loc>https://webtimize.ca/case-studies/targeting-budget-allocation</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/case-studies/targeting-budget-allocation" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/case-studies/targeting-budget-allocation" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/case-studies/targeting-budget-allocation" />
-  </url>
-  
-  <url>
-    <loc>https://webtimize.ca/case-studies/tood-beauty</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/case-studies/tood-beauty" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/case-studies/tood-beauty" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/case-studies/tood-beauty" />
-  </url>
-  
-  <url>
-    <loc>https://webtimize.ca/case-studies/browns-shoes-ecommerce-seo</loc>
-    <lastmod>2025-01-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/case-studies/browns-shoes-ecommerce-seo" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/case-studies/browns-shoes-ecommerce-seo" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/case-studies/browns-shoes-ecommerce-seo" />
-  </url>
-  
-  <url>
-    <loc>https://webtimize.ca/case-studies/nuknuuk-email-automation</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webtimize.ca/case-studies/nuknuuk-email-automation" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://webtimize.ca/case-studies/nuknuuk-email-automation" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://webtimize.ca/case-studies/nuknuuk-email-automation" />
-  </url>
-  
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!--  Root homepage  -->
+<url>
+<loc>https://webascendio.com/</loc>
+<lastmod>2025-08-22</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+</url>
+<!--  Blog index  -->
+<url>
+<loc>https://webascendio.com/blog</loc>
+<lastmod>2025-06-05</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<!--  Individual blog posts  -->
+<url>
+<loc>https://webascendio.com/blog/google-agency-leadership-circle-2025</loc>
+<lastmod>2025-01-03</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://webascendio.com/blog/how-webtmize-stays-ahead-data-science-ai</loc>
+<lastmod>2025-06-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://webascendio.com/blog/seo-ai-future-search-optimization</loc>
+<lastmod>2024-12-14</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://webascendio.com/blog/master-seo-strategies-tips</loc>
+<lastmod>2025-01-29</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://webascendio.com/blog/2025-best-ad-agencies-find-perfect-fit</loc>
+<lastmod>2025-01-10</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://webascendio.com/blog/google-ads-optimization</loc>
+<lastmod>2025-01-15</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<!--  Case studies overview  -->
+<url>
+<loc>https://webascendio.com/case-studies</loc>
+<lastmod>2024-12-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<!--  Individual case studies  -->
+<url>
+<loc>https://webascendio.com/case-studies/pajar</loc>
+<lastmod>2024-12-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://webascendio.com/case-studies/targeting-budget-allocation</loc>
+<lastmod>2024-12-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://webascendio.com/case-studies/tood-beauty</loc>
+<lastmod>2024-12-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://webascendio.com/case-studies/browns-shoes-ecommerce-seo</loc>
+<lastmod>2025-01-30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://webascendio.com/case-studies/nuknuuk-email-automation</loc>
+<lastmod>2024-12-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
 </urlset>
