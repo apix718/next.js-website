@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Clock, Tag } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -18,6 +19,8 @@ export async function getStaticProps() {
     },
   };
 }
+
+export const revalidate = 60; // ISR: revalidate every 60 seconds
 
 interface BlogPost {
   id: string;
@@ -47,9 +50,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPosts }) => {
     description: language === 'fr'
       ? 'Découvrez guides pratiques SEO, stratégies Google Ads, insights IA et conseils croissance e-commerce. Expertise marketing digital pour entrepreneurs et marketeurs.'
       : 'Explore practical SEO guides, Google Ads strategies, AI insights and e-commerce growth tips. Digital marketing expertise for entrepreneurs and marketers.',
-    url: 'https://webtimize.ca/blog',
+    url: 'https://webascendio.com/blog',
     type: 'website',
-    image: 'https://webtimize.ca/blog-og.jpg',
+    image: 'https://webascendio.com/blog-og.jpg',
     structuredData: generateOrganizationSchema(language)
   });
 
@@ -83,7 +86,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPosts }) => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-              Webtmize
+              Webascendio
             </Link>
             
             <div className="hidden md:flex items-center space-x-8">
@@ -114,7 +117,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPosts }) => {
             <Link href="/" className="md:hidden">
               <Button variant="outline" size="sm">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                {t('nav.back')}
+                Back
               </Button>
             </Link>
           </div>
@@ -189,11 +192,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPosts }) => {
                 >
                   {/* Post Image */}
                   <div className="relative overflow-hidden h-48">
-                    <img 
-                      src={post.image} 
-                      alt={post.title[language]}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    <Image src={post.image} alt={post.title[language]} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-blue-600 text-white">
                         {post.category[language]}
@@ -289,11 +288,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPosts }) => {
                 >
                   {/* Post Image */}
                   <div className="relative overflow-hidden h-64">
-                    <img 
-                      src={post.image} 
-                      alt={`Featured ${post.category[language]} article: ${post.title[language]} by ${post.author}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    <Image src={post.image} alt={`Featured ${post.category[language]} article: ${post.title[language]}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-blue-600 text-white">
                         {post.category[language]}
@@ -384,16 +379,16 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPosts }) => {
       <footer className="bg-white dark:bg-gray-900 border-t border-blue-100 dark:border-gray-700 py-12 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4 inline-block">
-            Webtmize
+            Webascendio
           </Link>
           <p className="text-gray-700 dark:text-gray-300 mb-4">
-            {t('footer.description')}
+            {/* Footer translation placeholder */}
           </p>
           <div className="flex justify-center space-x-6 text-sm text-gray-700 dark:text-gray-300">
-            <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.about')}</Link>
-            <Link href="/case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.caseStudies')}</Link>
-            <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('footer.blog')}</Link>
-            <a href="/#contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('nav.contact')}</a>
+            <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</Link>
+            <Link href="/case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Case Studies</Link>
+            <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</Link>
+            <a href="/#contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
           </div>
         </div>
       </footer>

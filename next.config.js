@@ -15,6 +15,11 @@ const nextConfig = {
     config.resolve.alias['@'] = path.resolve(process.cwd(), 'src');
     return config;
   },
+
+  // Enable remote image domains for Next/Image optimization
+  images: {
+    domains: ['images.pexels.com', 'kzdtsdomkshirzcbrhxg.supabase.co']
+  },
   
   // Environment variables
   env: {
