@@ -2,5 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/blog/[id]": "pages/blog/[id].js"
+  "/blog": "pages/blog.js",
+  "/blog/[id]": "pages/blog/[id].js",
+  "/case-studies": "pages/case-studies.js",
+  "/case-studies/[id]": "pages/case-studies/[id].js"
 }
