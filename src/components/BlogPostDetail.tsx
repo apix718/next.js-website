@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { ArrowLeft, Clock, User, Calendar } from 'lucide-react';
+import { Clock, User, Calendar, ArrowLeft as BackIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
@@ -10,7 +10,6 @@ import { Badge } from '@/components/ui/badge';
 import { blogPosts } from '@/data/blogPosts';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSEO, generateOrganizationSchema } from '@/hooks/useSEO';
-import { ArrowLeft as BackIcon } from 'lucide-react';
 
 const BlogPostDetail: React.FC = () => {
   const { language } = useLanguage();
@@ -53,7 +52,7 @@ const BlogPostDetail: React.FC = () => {
         },
         "datePublished": post.publishedDate,
         "dateModified": post.publishedDate,
-        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://webtimize.ca/blog/${post.id}` }
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://webtmize.ca/blog/${post.id}` }
       },
       generateOrganizationSchema(language)
     ]
@@ -65,22 +64,12 @@ const BlogPostDetail: React.FC = () => {
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.23, 0.86, 0.39, 0.96] }
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.23, 0.86, 0.39, 0.96] } }
   };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } }
   };
 
   return (
