@@ -6,8 +6,10 @@ dotenv.config();
 
 const nextConfig = {
   reactStrictMode: true,
+  
+  // Ensure trailing slashes are handled consistently
   trailingSlash: false,
-
+  
   // Webpack configuration
   webpack(config) {
     config.resolve.alias['@'] = path.resolve(process.cwd(), 'src');
@@ -18,7 +20,7 @@ const nextConfig = {
   images: {
     domains: ['images.pexels.com', 'kzdtsdomkshirzcbrhxg.supabase.co']
   },
-
+  
   // Environment variables
   env: {
     NEXT_PUBLIC_VOICEFLOW_PROJECT_ID: process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID
@@ -26,22 +28,6 @@ const nextConfig = {
 
   // Headers for SEO
   async headers() {
-    const isDev = process.env.NODE_ENV === 'development';
-    if (isDev) {
-      return [
-        {
-          source: '/:path*',
-          headers: [
-            {
-              key: 'Content-Security-Policy',
-              value:
-                "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; frame-ancestors *",
-            },
-          ],
-        },
-      ];
-    }
-
     return [
       {
         source: '/(.*)',
