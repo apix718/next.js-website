@@ -12,47 +12,19 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Google Agency Leadership Circle 2025 -->
+  <!-- Keep only URLs for posts that actually exist in src/data/blogPosts.ts -->
+  <!-- Example: if google-agency-leadership-circle-2025 exists, keep it; if not, remove the block below. -->
   <url>
     <loc>https://webtimize.ca/blog/google-agency-leadership-circle-2025</loc>
     <lastmod>2025-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- SEO & AI: Future of SEO in 2025 -->
   <url>
     <loc>https://webtimize.ca/blog/seo-ai-future-search-optimization</loc>
     <lastmod>2024-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Master SEO Strategies Tips -->
-  <url>
-    <loc>https://webtimize.ca/blog/master-seo-strategies-tips</loc>
-    <lastmod>2025-01-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- 2025 Best Ad Agencies Find Perfect Fit -->
-  <url>
-    <loc>https://webtimize.ca/blog/2025-best-ad-agencies-find-perfect-fit</loc>
-    <lastmod>2025-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- How Webtmize Stays Ahead: Data Science & AI -->
-  <url>
-    <loc>https://webtimize.ca/blog/how-webtmize-stays-ahead-data-science-ai</loc>
-    <lastmod>2025-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- How to add additional posts later ... -->
-
+  <!-- ... keep only other valid post URLs ... -->
 </urlset>

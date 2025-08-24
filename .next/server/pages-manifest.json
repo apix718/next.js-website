@@ -3,8 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/blog/[id]": "pages/blog/[id].js",
-  "/case-studies": "pages/case-studies.js",
   "/case-studies/[id]": "pages/case-studies/[id].js",
+  "/case-studies": "pages/case-studies.js",
   "/blog": "pages/blog.js"
 }

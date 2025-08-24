@@ -10,15 +10,14 @@ import { Badge } from '@/components/ui/badge';
 import { blogPosts } from '@/data/blogPosts';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSEO, generateOrganizationSchema } from '@/hooks/useSEO';
-// Removed unused imports: Button, Tag
+import { ArrowLeft as BackIcon } from 'lucide-react';
 
 const BlogPostDetail: React.FC = () => {
   const { language } = useLanguage();
   const params = useParams();
-  const id = typeof params?.id === 'string' ? params.id : Array.isArray(params?.id) ? params.id[0] : '';
+  const id = typeof params?.id === 'string' ? params.id : '';
   const post = blogPosts.find(p => p.id === id);
 
-  // If no post found, render a simple not-found UI
   if (!post) {
     return (
       <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center p-6">
@@ -30,7 +29,6 @@ const BlogPostDetail: React.FC = () => {
     );
   }
 
-  // Prepare SEO data
   const seoData = {
     title: `${post.title[language]} - ${post.category[language]} | Webtmize`,
     description: post.excerpt[language],
@@ -55,7 +53,7 @@ const BlogPostDetail: React.FC = () => {
         },
         "datePublished": post.publishedDate,
         "dateModified": post.publishedDate,
-        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://webtmize.ca/blog/${post.id}` }
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://webtimize.ca/blog/${post.id}` }
       },
       generateOrganizationSchema(language)
     ]
@@ -87,10 +85,9 @@ const BlogPostDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      {/* Simple header with back link */}
       <header className="p-4 border-b border-blue-100 dark:border-gray-700">
         <Link href="/blog" className="flex items-center text-blue-600 hover:underline">
-          <ArrowLeft className="w-4 h-4 mr-2" /> Back to Blog
+          <BackIcon className="w-4 h-4 mr-2" /> Back to Blog
         </Link>
       </header>
 
@@ -109,9 +106,7 @@ const BlogPostDetail: React.FC = () => {
               <div className="flex items-center gap-1">
                 <Calendar className="w-4 h-4" />
                 {new Date(post.publishedDate).toLocaleDateString(language === 'fr' ? 'fr-FR' : 'en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
+                  year: 'numeric', month: 'long', day: 'numeric'
                 })}
               </div>
               <div className="flex items-center gap-1">
@@ -139,7 +134,6 @@ const BlogPostDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer remains unchanged in this patch */}
       <footer className="bg-white dark:bg-gray-900 border-t border-blue-100 dark:border-gray-700 py-12 px-6">
         {/* existing footer content... */}
       </footer>
