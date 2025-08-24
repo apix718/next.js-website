@@ -4,7 +4,5 @@
   "/_document": "pages/_document.js",
   "/blog/[id]": "pages/blog/[id].js",
   "/blog": "pages/blog.js",
-  "/case-studies": "pages/case-studies.js",
-  "/case-studies/[id]": "pages/case-studies/[id].js",
   "/": "pages/index.js"
 }
