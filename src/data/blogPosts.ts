@@ -95,7 +95,7 @@ At Webtmize, we believe the future of digital marketing hinges on data-driven de
 - Scalable success with AI-powered systems
 
 ## Summary and Call-to-Action
-In short, our data-driven foundation accelerates growth and reduces costs. Ready to apply these strategies to your business? Contact us to start a free assessment and explore how we can improve your marketing performance.`,
+In short, our data-driven foundation accelerates growth and reduces costs. Ready to apply these strategies to your business? Contact us to start a free assessment and explore how we can improve your marketing performance。`,
       fr: `# Notre approche Data-Driven et IA : Lire et s'adapter pour l'avenir
 
 Chez Webtmize, nous croyons que l'avenir du marketing digital repose sur une prise de décision guidée par les données. Voici une structure claire, des étapes actionnables et des résultats mesurables.
@@ -181,7 +181,7 @@ Chez Webtmize, nous croyons que l'avenir du marketing digital repose sur une pri
 - Succès évolutif grâce à des systèmes alimentés par l'IA
 
 ## Résumé et Appel à l'Action
-En bref, notre fondation axée sur les données accélère la croissance et réduit les coûts. Prêt à appliquer ces stratégies à votre business ? Contactez-nous pour démarrer une évaluation gratuite et discuter de la mise en œuvre dans votre marketing.`,
+En bref, notre fondation axée sur les données accélère la croissance et réduit les coûts. Prêt à appliquer ces stratégies à votre business ? Contactez-nous pour démarrer une évaluation gratuite et discuter de la mise en œuvre dans votre marketing。`
     },
     category: {
       en: "Technology",
@@ -316,7 +316,7 @@ Choosing the right ad agency is a significant decision. By understanding agency 
 By following these guidelines, you can confidently choose an advertising agency that aligns with your business goals and propels your marketing efforts to new heights. The key is to thoroughly evaluate potential partners based on their expertise, reputation, and ability to deliver value. With the right agency by your side, your business can thrive in the competitive world of advertising.`,
       fr: `# Meilleures Agences Publicitaires 2025 : Trouvez Votre Partenaire Idéal
 
-Dans le monde numérique rapide d'aujourd'hui, choisir la bonne agence de publicité peut faire ou défaire les efforts marketing de votre entreprise. Avec tant d'options disponibles, comment déterminer quelle agence correspond le mieux à vos objectifs d'entreprise ? Dans cet article, nous examinerons les meilleures agences publicitaires en 2025 et vous guiderons dans le processus de choix de celle qui répondra le mieux à vos besoins.
+Dans le monde numérique rapide d'aujourd'hui, choisir la bonne agence de publicité peut faire ou defaire les efforts marketing de votre entreprise. Avec tant d'options disponibles, comment déterminer quelle agence correspond le mieux à vos objectifs d'entreprise ? Dans cet article, nous examinerons les meilleures agences publicitaires en 2025 et vous guiderons dans le processus de choix de celle qui répondra le mieux à vos besoins.
 
 ## Introduction
 Dans le paysage numérique trépidant, le bon partenaire peut stimuler la croissance, tandis que le mauvais peut freiner vos progrès. Ce guide vous aide à comparer les principales agences et à choisir le meilleur partenaire pour votre stratégie.
@@ -327,7 +327,7 @@ Les agences publicitaires existent sous différentes formes, chacune répondant 
 ### Agences à service complet
 - Gèrent tous les besoins marketing et publicitaires (créatif, numérique, planning média)
 - Solution tout-en-un pour la commodité et la cohérence
-- Idéales pour les entreprises recherchant un accompagnement global
+- Idéales pour des entreprises recherchant un accompagnement global
 
 ### Boutiques créatives
 - Se concentrent sur le travail créatif (design et rédaction)
@@ -402,37 +402,6 @@ En suivant ces directives, vous pouvez choisir en toute confiance une agence pub
     readTime: "20 min read",
     publishedDate: "2025-01-10",
     image: "https://kzdtsdomkshirzcbrhxg.supabase.co/storage/v1/object/public/image/blog/def77574-fd90-4999-9392-42eee3516386.png",
-    featured: false
-  },
-  {
-    id: "google-ads-optimization",
-    title: {
-      en: "Google Ads Optimization: Advanced Strategies for Maximum ROI in 2025",
-      fr: "Optimisation Google Ads : Stratégies Avancées pour un ROI Maximum en 2025"
-    },
-    excerpt: {
-      en: "Master Google Ads optimization with proven strategies that deliver exceptional ROI. Learn advanced bidding, targeting, and campaign management techniques from our Google Agency Leadership Circle experts.",
-      fr: "Maîtrisez l'optimisation Google Ads avec des stratégies prouvées qui livrent un ROI exceptionnel."
-    },
-    content: {
-      en: `# Google Ads Optimization: Advanced Strategies for Maximum ROI in 2025
-
-As a member of the Google Agency Leadership Circle, Webtmize has access to cutting-edge strategies and insights that drive exceptional Google Ads performance. In this comprehensive guide, we'll share the advanced optimization techniques that have helped our clients achieve remarkable results.
-
-Learn how we've applied these strategies in real campaigns through our [case studies](/case-studies), including our [180% conversion rate improvement for SaaS companies](/case-studies/targeting-budget-allocation) and our [300% revenue growth achievement for Pajar](/case-studies/pajar).`,
-      fr: `# Optimisation Google Ads : Stratégies Avancées pour un ROI Maximum en 2025
-
-En tant que membre du Cercle de Leadership des Agences Google, Webtmize a accès à des stratégies et insights de pointe qui génèrent des performances Google Ads exceptionnelles. Dans ce guide exhaustif, nous partagerons les techniques d'optimisation avancées qui ont aidé nos clients à obtenir des résultats remarquables.`
-    },
-    category: {
-      en: "Google Ads",
-      fr: "Google Ads"
-    },
-    tags: ["Google Ads", "PPC", "Optimization", "ROI", "Digital Marketing", "Bidding Strategies"],
-    author: "David Chen",
-    readTime: "15 min read",
-    publishedDate: "2025-01-15",
-    image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: false
   }
 ];
