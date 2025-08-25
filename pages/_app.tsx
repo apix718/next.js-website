@@ -19,7 +19,7 @@ function AppContent({ Component, pageProps }: AppProps) {
     
     // Get current path without query parameters for canonical URL
     const currentPath = window.location.pathname;
-    const canonicalUrl = `https://webtimize.ca${currentPath}`;
+    const canonicalUrl = `https://webascendio.com${currentPath}`;
     
     const hreflangs = [
       { hreflang: 'en', href: canonicalUrl },
@@ -59,14 +59,14 @@ function AppContent({ Component, pageProps }: AppProps) {
         <meta name="language" content={language} />
         
         {/* Canonical and hreflang will be set dynamically via useEffect */}
-        <link rel="canonical" href="https://webtimize.ca" />
+        <link rel="canonical" href="https://webascendio.com" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Webtmize - Digital Marketing Agency for E-commerce & SaaS Growth" />
         <meta property="og:description" content="Webtmize delivers high-ROI marketing solutions for e-commerce and SaaS brands. Let's grow together with proven strategies." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://webtimize.ca" />
-        <meta property="og:image" content="https://webtimize.ca/og-image.jpg" />
+        <meta property="og:url" content="https://webascendio.com" />
+        <meta property="og:image" content="https://webascendio.com/og-image.jpg" />
         <meta property="og:site_name" content="Webtmize" />
         <meta property="og:locale" content={language === 'fr' ? 'fr_FR' : 'en_US'} />
         
@@ -75,7 +75,7 @@ function AppContent({ Component, pageProps }: AppProps) {
         <meta name="twitter:site" content="@webtmize" />
         <meta name="twitter:title" content="Webtmize - Digital Marketing Agency for E-commerce & SaaS Growth" />
         <meta name="twitter:description" content="Webtmize delivers high-ROI marketing solutions for e-commerce and SaaS brands. Let's grow together with proven strategies." />
-        <meta name="twitter:image" content="https://webtimize.ca/og-image.jpg" />
+        <meta name="twitter:image" content="https://webascendio.com/og-image.jpg" />
         
         {/* Favicon and icons */}
         <link rel="icon" href="/favicon.ico" />
@@ -98,19 +98,18 @@ function AppContent({ Component, pageProps }: AppProps) {
               "description": language === 'fr' 
                 ? "Webtmize offre des solutions marketing à haut ROI pour les marques e-commerce et SaaS. Grandissons ensemble."
                 : "Webtmize delivers high-ROI marketing solutions for e-commerce and SaaS brands. Let's grow together.",
-              "url": "https://webtimize.ca",
-              "logo": "https://webtimize.ca/logo.png",
+              "url": "https://webascendio.com",
+              "logo": "https://webascendio.com/logo.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+1-555-123-4567",
                 "contactType": "customer service",
-                "email": "hello@webtmize.com"
+                "email": "hello@webascendio.com"
               },
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Montreal",
-                "addressRegion": "QC",
-                "addressCountry": "CA"
+                "addressLocality": language === 'fr' ? "Paris" : "San Francisco",
+                "addressCountry": language === 'fr' ? "FR" : "US"
               },
               "sameAs": [
                 "https://linkedin.com/company/webtmize",

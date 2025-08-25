@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { blogPosts } from '../src/data/blogPosts';
 
-const domain = 'https://webtimize.ca';
+const domain = 'https://webascendio.com';
 const entries = blogPosts.map(p => ({
   loc: `${domain}/blog/${p.id}`,
   lastmod: p.publishedDate,

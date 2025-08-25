@@ -28,11 +28,10 @@ export const useSEO = (seoData: SEOData) => {
     // Set language attribute
     document.documentElement.lang = language;
 
-    // Helper function to update or create meta tag
+    // Helper function to update meta
     const updateMetaTag = (name: string, content: string, property = false) => {
       const attribute = property ? 'property' : 'name';
       const selector = `meta[${attribute}="${name}"]`;
-      
       let element = document.querySelector(selector) as HTMLMetaElement;
       if (element) {
         element.setAttribute('content', content);
@@ -44,12 +43,9 @@ export const useSEO = (seoData: SEOData) => {
       }
     };
 
-    // Helper function to update title - FIXED
+    // Helper function to update title
     const updateTitle = (title: string) => {
-      // Update document title
       document.title = title;
-      
-      // Ensure there's a title element in head
       let titleElement = document.querySelector('title') as HTMLTitleElement;
       if (!titleElement) {
         titleElement = document.createElement('title');
@@ -63,7 +59,6 @@ export const useSEO = (seoData: SEOData) => {
       const selector = hreflang 
         ? `link[rel="${rel}"][hreflang="${hreflang}"]`
         : `link[rel="${rel}"]`;
-      
       let element = document.querySelector(selector) as HTMLLinkElement;
       if (element) {
         element.setAttribute('href', href);
@@ -78,7 +73,7 @@ export const useSEO = (seoData: SEOData) => {
       }
     };
 
-    // Update title first - THIS IS THE KEY FIX
+    // Update title first
     updateTitle(seoData.title);
 
     // Basic meta tags
@@ -129,8 +124,6 @@ export const useSEO = (seoData: SEOData) => {
     // Canonical URL and hreflang
     if (seoData.url) {
       updateLinkTag('canonical', seoData.url);
-      
-      // Hreflang tags for multilingual support
       const baseUrl = seoData.url.split('?')[0];
       updateLinkTag('alternate', baseUrl, 'en');
       updateLinkTag('alternate', baseUrl, 'fr');
@@ -139,18 +132,11 @@ export const useSEO = (seoData: SEOData) => {
 
     // Handle structured data
     if (seoData.structuredData) {
-      // Remove existing structured data
       const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
       existingScripts.forEach(script => script.remove());
-      
-      // Add new structured data
       const script = document.createElement('script');
       script.type = 'application/ld+json';
-      
-      const jsonData = Array.isArray(seoData.structuredData) 
-        ? seoData.structuredData 
-        : seoData.structuredData;
-        
+      const jsonData = Array.isArray(seoData.structuredData) ? seoData.structuredData : seoData.structuredData;
       script.textContent = JSON.stringify(jsonData, null, 2);
       document.head.appendChild(script);
     }
@@ -171,13 +157,13 @@ export const generateOrganizationSchema = (language: string) => ({
   "description": language === 'fr' 
     ? "Webtmize offre des solutions marketing à haut ROI pour les marques e-commerce et SaaS. Grandissons ensemble."
     : "Webtmize delivers high-ROI marketing solutions for e-commerce and SaaS brands. Let's grow together.",
-  "url": "https://webtimize.ca",
-  "logo": "https://webtimize.ca/logo.png",
+  "url": "https://webascendio.com",
+  "logo": "https://webascendio.com/logo.png",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-555-123-4567",
     "contactType": "customer service",
-    "email": "hello@webtmize.com"
+    "email": "hello@webascendio.com"
   },
   "address": {
     "@type": "PostalAddress",
@@ -197,10 +183,10 @@ export const generateWebsiteSchema = (language: string) => ({
   "description": language === 'fr' 
     ? "Agence de marketing digital spécialisée dans l'e-commerce et SaaS"
     : "Digital marketing agency specialized in e-commerce and SaaS",
-  "url": "https://webtimize.ca",
+  "url": "https://webascendio.com",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://webtimize.ca/search?q={search_term_string}",
+    "target": "https://webascendio.com/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 });
@@ -220,14 +206,14 @@ export const generateArticleSchema = (caseStudy: CaseStudy, language: string) =>
     "name": "Webtmize",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://webtimize.ca/logo.png"
+      "url": "https://webascendio.com/logo.png"
     }
   },
   "datePublished": "2024-01-01",
   "dateModified": "2024-12-01",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://webtimize.ca/case-studies/${caseStudy.id}`
+    "@id": `https://webascendio.com/case-studies/${caseStudy.id}`
   },
   "about": {
     "@type": "Thing",
