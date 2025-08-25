@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://webtimize.ca/</loc>
-    <lastmod>2025-08-24</lastmod>
+    <lastmod>2025-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://webtimize.ca/blog</loc>
-    <lastmod>2025-08-24</lastmod>
+    <lastmod>2025-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Keep only URLs for posts that actually exist in src/data/blogPosts.ts -->
-  <!-- Example: if google-agency-leadership-circle-2025 exists, keep it; if not, remove the block below. -->
+
+  <!-- Existing blog posts (only those that exist in src/data/blogPosts.ts) -->
   <url>
     <loc>https://webtimize.ca/blog/google-agency-leadership-circle-2025</loc>
     <lastmod>2025-01-03</lastmod>
@@ -26,5 +26,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- ... keep only other valid post URLs ... -->
+  <url>
+    <loc>https://webtimize.ca/blog/master-seo-strategies-tips</loc>
+    <lastmod>2025-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtimize.ca/blog/2025-best-ad-agencies-find-perfect-fit</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtimize.ca/blog/how-webtmize-stays-ahead-data-science-ai</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Add any new posts here once they exist in blogPosts.ts -->
 </urlset>
