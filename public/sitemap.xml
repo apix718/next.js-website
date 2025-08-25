@@ -32,12 +32,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://webtimize.ca/blog/how-webtmize-stays-ahead-data-science-ai</loc>
-    <lastmod>2025-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
   <!-- Add any new posts here once they exist in blogPosts.ts -->
 </urlset>
