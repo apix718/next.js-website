@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 
 // Import shadcn/ui components
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { FlipCard, FlipCardFront, FlipCardBack } from '@/components/ui/flip-card';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -48,7 +47,7 @@ const MarketingAgencyWebsite: React.FC = () => {
           ? "Webtmize offre des solutions marketing à haut ROI pour les marques e-commerce et SaaS. Grandissons ensemble."
           : "Webtmize delivers high-ROI marketing solutions for e-commerce and SaaS brands. Let's grow together.",
         "url": "https://webtimize.ca",
-        "logo": "https://webtimize.ca/logo.png",
+        "logo": "https://webtmize.ca/logo.png",
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": language === 'fr' ? "+33 1 23 45 67 89" : "+1 (555) 123-4567",
@@ -340,9 +339,6 @@ const MarketingAgencyWebsite: React.FC = () => {
             variants={staggerContainer}
             className="text-center mb-16"
           >
-            <motion.div variants={fadeInUp}>
-              <Badge variant="outline" className="mb-4">{t('services.badge')}</Badge>
-            </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100"
@@ -485,9 +481,6 @@ const MarketingAgencyWebsite: React.FC = () => {
             variants={staggerContainer}
             className="text-center mb-16"
           >
-            <motion.div variants={fadeInUp}>
-              <Badge variant="outline" className="mb-4">{t('contact.badge')}</Badge>
-            </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100"
