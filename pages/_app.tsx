@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
-import VoiceflowChat from '@/components/ui/voiceflow-chat';
 import '@/index.css';
 
 function AppContent({ Component, pageProps }: AppProps) {
@@ -120,7 +119,6 @@ function AppContent({ Component, pageProps }: AppProps) {
         />
       </Head>
       <Component {...pageProps} />
-      <VoiceflowChat />
     </>
   );
 }
