@@ -13,6 +13,18 @@ import { useSEO, generateOrganizationSchema } from '@/hooks/useSEO';
 const CaseStudiesPage: React.FC = () => {
   const { t, language } = useLanguage();
 
+  // Safely attempt to open Voiceflow chat if available; otherwise no-op
+  const openVoiceflowIfAvailable = () => {
+    try {
+      const w = window as any;
+      if (w && w.voiceflow && w.voiceflow.chat && typeof w.voiceflow.chat.open === 'function') {
+        w.voiceflow.chat.open();
+      }
+    } catch {
+      // swallow errors to keep preview stable
+    }
+  };
+
   // SEO Implementation
   useSEO({
     title: language === 'fr' 
@@ -72,11 +84,7 @@ const CaseStudiesPage: React.FC = () => {
               </a>
               <Button 
                 className="bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900"
-                onClick={() => {
-                  if (window.voiceflow && window.voiceflow.chat) {
-                    window.voiceflow.chat.open();
-                  }
-                }}
+                onClick={openVoiceflowIfAvailable}
               >
                 🤖 Book Your Call with AI
               </Button>
@@ -200,11 +208,7 @@ const CaseStudiesPage: React.FC = () => {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 text-lg hover:from-blue-700 hover:to-blue-900"
-              onClick={() => {
-                if (window.voiceflow && window.voiceflow.chat) {
-                  window.voiceflow.chat.open();
-                }
-              }}
+              onClick={openVoiceflowIfAvailable}
             >
               🤖 Book Your Call with AI
               <ArrowRight className="ml-2 w-5 h-5" />
