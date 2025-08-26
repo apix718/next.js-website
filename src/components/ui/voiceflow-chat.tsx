@@ -57,10 +57,18 @@ const VoiceflowChat: React.FC<VoiceflowChatProps> = ({ autoLoad = true }) => {
             }
           });
           w.VOICEFLOW_LOADED = true;
+        } else {
+          // If API isn't ready yet, still mark as loaded to avoid reattempts
+          w.VOICEFLOW_LOADED = true;
         }
       };
 
-      // Append the script to the head
+      script.onerror = function() {
+        // In preview environments (CSP or network blocks) the script may fail to load.
+        console.warn('Voiceflow chat script failed to load in preview. Preview mode will skip the chat widget.');
+        w.VOICEFLOW_LOADED = true; // Prevent retry loops in preview
+      };
+
       document.head.appendChild(script);
     };
 
@@ -69,7 +77,6 @@ const VoiceflowChat: React.FC<VoiceflowChatProps> = ({ autoLoad = true }) => {
 
     // Cleanup function
     return () => {
-      // Graceful cleanup: try to close/destroy chat widget if API exposes it
       try {
         if (window.voiceflow && window.voiceflow.chat) {
           const chatApi = (window as any).voiceflow.chat;
