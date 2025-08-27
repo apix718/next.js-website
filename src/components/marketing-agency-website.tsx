@@ -46,7 +46,7 @@ const MarketingAgencyWebsite: React.FC = () => {
         "description": language === 'fr' 
           ? "Webtmize offre des solutions marketing à haut ROI pour les marques e-commerce et SaaS. Grandissons ensemble."
           : "Webtmize delivers high-ROI marketing solutions for e-commerce and SaaS brands. Let's grow together.",
-        "url": "https://webtimize.ca",
+        "url": "https://webtmize.ca",
         "logo": "https://webtmize.ca/logo.png",
         "contactPoint": {
           "@type": "ContactPoint",
@@ -369,12 +369,12 @@ const MarketingAgencyWebsite: React.FC = () => {
                 >
                   <FlipCard className="h-full w-full">
                     <FlipCardFront className="rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 text-white shadow-xl">
-                      <div className="flex h-full flex-col justify-between">
+                      <div className="flex h-full flex-col justify-between relative">
                         <div className="mb-6 text-blue-100">
                           {service.icon}
                         </div>
-                        <div>
-                          <h3 className="mb-4 text-2xl font-bold text-white">
+                        <div className="absolute left-6 top-1/2 -translate-y-1/2 w-[72%]">
+                          <h3 className="mb-2 text-2xl font-bold text-white">
                             {service.title}
                           </h3>
                           <p className="text-blue-100 leading-relaxed">
